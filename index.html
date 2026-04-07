@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>8051 Microcontroller - Full Exam Bank (90+ Questions) | Bilingual</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8051 Trắc nghiệm - Hiện đáp án ngay + Hướng dẫn FX-580</title>
     <style>
         * {
             box-sizing: border-box;
@@ -16,7 +16,7 @@
             color: #1e2a3e;
         }
         .main-container {
-            max-width: 1400px;
+            max-width: 1300px;
             margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
@@ -24,7 +24,7 @@
         }
         .menu-sidebar {
             flex: 1;
-            min-width: 260px;
+            min-width: 240px;
             background: white;
             border-radius: 28px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.05);
@@ -56,11 +56,7 @@
             color: #1e4663;
             border-left: 4px solid #cbd5e1;
         }
-        .chapter-btn:hover {
-            background: #e6edf4;
-            transform: translateX(5px);
-        }
-        .chapter-btn.active {
+        .chapter-btn:hover, .chapter-btn.active {
             background: #1f6392;
             color: white;
             border-left: 4px solid #ffb74d;
@@ -74,10 +70,9 @@
             border-radius: 32px;
             padding: 20px 28px;
             box-shadow: 0 12px 28px rgba(0,0,0,0.08);
-            margin-bottom: 30px;
         }
         .chapter-title {
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             border-bottom: 3px solid #ffb74d;
             display: inline-block;
             padding-bottom: 5px;
@@ -86,20 +81,26 @@
         }
         .question-item {
             background: #f9fbfd;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             padding: 16px 20px;
             border-radius: 24px;
             border: 1px solid #e2edf2;
             transition: 0.2s;
         }
-        .question-item:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
         .question-text {
             font-weight: 700;
-            font-size: 1.05rem;
+            font-size: 1rem;
             margin-bottom: 12px;
             color: #0c4a6e;
+        }
+        .keyword-badge {
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 30px;
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            margin-left: 8px;
+            font-weight: normal;
         }
         .options {
             padding-left: 20px;
@@ -109,451 +110,254 @@
             display: block;
             margin: 8px 0;
             cursor: pointer;
-            font-weight: normal;
+            padding: 6px 12px;
+            border-radius: 30px;
+            transition: 0.1s;
+        }
+        .options label:hover {
+            background: #e6f0fa;
         }
         .feedback {
-            margin-top: 10px;
-            font-size: 0.9rem;
+            margin-top: 12px;
             padding: 10px 16px;
             border-radius: 20px;
-            width: 100%;
+            font-size: 0.85rem;
         }
-        .correct-feedback {
+        .feedback.correct {
             background: #d1fae5;
-            color: #065f46;
             border-left: 4px solid #10b981;
         }
-        .wrong-feedback {
+        .feedback.wrong {
             background: #fee2e2;
-            color: #991b1b;
             border-left: 4px solid #ef4444;
         }
-        .keyword-badge {
-            background: #fef3c7;
-            color: #92400e;
-            border-radius: 30px;
-            padding: 2px 12px;
-            font-size: 0.7rem;
-            margin-left: 8px;
-            font-weight: normal;
-            display: inline-block;
+        .english { color: #1e40af; font-weight: 500; }
+        .vietnamese { color: #b91c1c; }
+        .calc-guide {
+            background: #1e2f3f;
+            border-radius: 28px;
+            padding: 18px;
+            margin-top: 20px;
+            color: #f1f5f9;
         }
-        .bilingual-exp {
-            margin-top: 8px;
+        .calc-guide h4 {
+            margin: 0 0 12px 0;
+            color: #ffb74d;
+        }
+        .calc-guide table {
+            width: 100%;
             font-size: 0.85rem;
-            border-top: 1px dashed #cbd5e1;
-            padding-top: 8px;
+            border-collapse: collapse;
         }
-        .english {
-            color: #1e40af;
-            font-weight: 500;
+        .calc-guide td {
+            padding: 8px 6px;
+            border-bottom: 1px solid #3a5a7a;
+            vertical-align: top;
         }
-        .vietnamese {
-            color: #b91c1c;
+        .calc-guide .step {
+            font-weight: bold;
+            color: #ffb74d;
         }
-        button.submit-all {
-            background: #2c6e9e;
+        button.reset-chap {
+            background: #64748b;
             border: none;
-            padding: 12px 30px;
-            font-size: 1rem;
+            padding: 8px 20px;
+            font-size: 0.9rem;
             font-weight: bold;
             color: white;
             border-radius: 40px;
             cursor: pointer;
-            margin-top: 10px;
-            transition: 0.2s;
-        }
-        button.submit-all:hover {
-            background: #0f4c6f;
-            transform: scale(1.02);
-        }
-        .reset-chap {
-            background: #64748b;
-            margin-left: 12px;
-        }
-        .calculator-panel {
-            background: #1e2f3f;
-            border-radius: 32px;
-            padding: 16px;
-            color: white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-        .calc-screen {
-            background: #000;
-            padding: 16px;
-            border-radius: 24px;
-            text-align: right;
-            font-size: 2rem;
-            font-family: 'Courier New', monospace;
-            margin-bottom: 15px;
-            color: #0f0;
-            word-break: break-all;
-            min-height: 85px;
-        }
-        .calc-buttons {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-        }
-        .calc-buttons button {
-            background: #334e68;
-            border: none;
-            padding: 12px 0;
-            border-radius: 28px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: white;
-            cursor: pointer;
-            transition: 0.1s;
-        }
-        .calc-buttons button:active {
-            background: #1f3a4b;
-        }
-        .calc-buttons .op-btn {
-            background: #ff9800;
-            color: #1e2a3a;
-        }
-        .calc-buttons .clear-btn {
-            background: #aa2e2e;
+            margin-top: 15px;
         }
         .progress-info {
             background: #e6f0fa;
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 40px;
             margin-bottom: 16px;
-            font-size: 0.9rem;
-        }
-        @media (max-width: 800px) {
-            .main-container {
-                flex-direction: column;
-            }
-            .menu-sidebar {
-                position: static;
-            }
-            .calc-buttons {
-                grid-template-columns: repeat(4, 1fr);
-            }
+            font-size: 0.85rem;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
 <div class="main-container">
     <div class="menu-sidebar">
-        <h3>📘 8051 MICROCONTROLLER</h3>
-        <button class="chapter-btn active" data-chapter="0">📖 Ch 1: Introduction (30 Qs)</button>
-        <button class="chapter-btn" data-chapter="1">⚙️ Ch 2: 8051 Architecture (30 Qs)</button>
-        <button class="chapter-btn" data-chapter="2">⌨️ Ch 3: C/Timer/Serial/Int (30 Qs)</button>
-        <hr style="margin: 16px 0;">
-        <div style="font-size: 0.8rem; text-align: center; color:#4b6a8b;">
-            🔑 <strong>Keyword</strong> for each question<br>
-            🌐 <strong>Bilingual</strong> explanation (EN/VN)<br>
-            🧮 <strong>Calculator</strong> FX-580 built-in<br>
-            📊 <strong>90+ questions</strong> total
+        <h3>📘 8051 TRẮC NGHIỆM</h3>
+        <button class="chapter-btn active" data-chapter="0">📖 Chương 1: Giới thiệu (25 câu)</button>
+        <button class="chapter-btn" data-chapter="1">⚙️ Chương 2: Kiến trúc 8051 (25 câu)</button>
+        <button class="chapter-btn" data-chapter="2">⌨️ Chương 3: C/Timer/Serial/Int (25 câu)</button>
+        <hr>
+        <div class="calc-guide" style="margin-top: 10px;">
+            <h4>🧮 HƯỚNG DẪN FX-580VN X</h4>
+            <table>
+                <tr><td class="step">Cộng HEX</td><td>7A + 3F = ?<br>🔹 Bấm: <kbd>7</kbd><kbd>A</kbd> → <kbd>+</kbd> → <kbd>3</kbd><kbd>F</kbd> → <kbd>=</kbd> → <kbd>▶</kbd> (đổi sang HEX)</td></tr>
+                <tr><td class="step">Đổi DEC→BIN</td><td>227 → binary<br>🔹 Bấm: <kbd>227</kbd> → <kbd>=</kbd> → <kbd>▶</kbd> chọn <kbd>Bin</kbd></td></tr>
+                <tr><td class="step">Đổi BIN→DEC</td><td>11100011 → decimal<br>🔹 Bấm: <kbd>BIN</kbd> → nhập số → <kbd>=</kbd> → <kbd>▶</kbd> chọn <kbd>Dec</kbd></td></tr>
+                <tr><td class="step">Bù 2 (8-bit)</td><td>Tìm bù 2 của 7<br>🔹 7 → <kbd>▶</kbd> chọn <kbd>Bin</kbd> → ghi 00000111 → đảo bit: 11111000 → +1 = 11111001</td></tr>
+                <tr><td class="step">Tính timer (12MHz)</td><td>Delay 50ms: 65536-50000=15536<br>🔹 Bấm: <kbd>65536</kbd> <kbd>-</kbd> <kbd>50000</kbd> <kbd>=</kbd> → <kbd>▶</kbd> chọn <kbd>Hex</kbd> → 3CB0</td></tr>
+                <tr><td class="step">Tính timer (11.0592MHz)</td><td>1 chu kỳ = 12/11.0592 = 1.085µs<br>🔹 Bấm: <kbd>12</kbd> <kbd>÷</kbd> <kbd>11.0592</kbd> <kbd>=</kbd> → 1.085µs</td></tr>
+            </table>
+            <p style="font-size:12px; margin-top:12px;">💡 Mẹo: Nhấn <kbd>▶</kbd> (đổi đơn vị) để chuyển Dec↔Hex↔Bin</p>
         </div>
     </div>
 
     <div class="quiz-area">
-        <div class="quiz-card" id="quizContainer">
+        <div class="quiz-card">
             <div id="dynamicQuiz"></div>
-            <div style="display: flex; justify-content: space-between; margin-top: 20px; flex-wrap: wrap; gap: 10px;">
-                <button class="submit-all" id="submitBtn">✅ Submit & Check Answers</button>
-                <button class="submit-all reset-chap" id="resetChapBtn">🔄 Reset Chapter</button>
-            </div>
-        </div>
-
-        <div class="calculator-panel">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                <span>🧮 FX-580VN X Calculator</span>
-                <span style="font-size: 11px;">Hex: type "FF+1" then =</span>
-            </div>
-            <div class="calc-screen" id="calcScreen">0</div>
-            <div class="calc-buttons" id="calcButtons"></div>
+            <button class="reset-chap" id="resetChapBtn">🔄 Làm lại chương này</button>
         </div>
     </div>
 </div>
 
 <script>
-    // ======================= 90+ QUESTIONS =======================
-    // CHAPTER 1: 30 questions - Introduction to Microcontrollers
-    // CHAPTER 2: 30 questions - 8051 Architecture
-    // CHAPTER 3: 30 questions - C Programming, Timer, Serial, Interrupt
-    
+    // ======================= DỮ LIỆU CÂU HỎI (Mỗi câu có đáp án + giải thích song ngữ) =======================
     const questionsData = {
-        0: [ // Chapter 1 - 30 câu
-            { text: "What is the size of internal ROM in the standard 8051 microcontroller?", options: ["1 KB", "2 KB", "4 KB", "8 KB"], correct: 2, keyword: "4KB ROM", explanation_en: "The standard 8051 has 4KB of on-chip ROM (program memory).", explanation_vn: "8051 chuẩn có 4KB ROM nội (bộ nhớ chương trình)." },
-            { text: "How many general purpose registers (R0-R7) does 8051 have at any one time?", options: ["8", "16", "32", "64"], correct: 0, keyword: "8 registers", explanation_en: "Although there are 4 register banks, only one bank is active at a time, giving 8 registers (R0-R7).", explanation_vn: "Dù có 4 bank thanh ghi, chỉ 1 bank được dùng tại 1 thời điểm → 8 thanh ghi R0-R7." },
-            { text: "What is the special function of Port 0 on the 8051?", options: ["Data output only", "Data input only", "Multiplexed address/data bus", "Interrupt control"], correct: 2, keyword: "P0 multiplexed", explanation_en: "Port 0 serves as multiplexed low-order address bus (A0-A7) and data bus (D0-D7) when accessing external memory.", explanation_vn: "Cổng 0 vừa là bus địa chỉ thấp (A0-A7) vừa là bus dữ liệu (D0-D7) khi truy xuất bộ nhớ ngoài." },
-            { text: "What is the size of internal RAM in the standard 8051?", options: ["64 bytes", "128 bytes", "256 bytes", "512 bytes"], correct: 1, keyword: "128B RAM", explanation_en: "The standard 8051 has 128 bytes of internal RAM (addresses 00H to 7FH).", explanation_vn: "8051 chuẩn có 128 byte RAM nội (địa chỉ 00H-7FH)." },
-            { text: "What is the SFR address of the PSW (Program Status Word) register?", options: ["0xD0", "0xE0", "0xF0", "0xA0"], correct: 0, keyword: "PSW D0H", explanation_en: "PSW is located at SFR address D0H and is bit-addressable.", explanation_vn: "PSW có địa chỉ SFR là D0H và có thể đánh địa chỉ bit." },
-            { text: "What does the instruction 'MOV A, #25H' do?", options: ["Move value 25H into A", "Move memory content at 25H into A", "Move address 25H into A", "Invalid instruction"], correct: 0, keyword: "immediate addressing", explanation_en: "'#' denotes immediate addressing, so the value 25H is directly loaded into accumulator A.", explanation_vn: "'#' là định địa chỉ tức thời, nạp giá trị 25H vào thanh ghi A." },
-            { text: "Which instruction rotates accumulator A left through the Carry flag?", options: ["RLC A", "RRC A", "RL A", "RR A"], correct: 0, keyword: "RLC A", explanation_en: "RLC A rotates left through Carry: bit7 goes to CY, CY goes to bit0.", explanation_vn: "RLC A xoay trái qua cờ Carry: bit7 vào CY, CY vào bit0." },
-            { text: "What are the possible instruction lengths in 8051?", options: ["1 byte only", "2 bytes only", "3 bytes only", "1, 2, or 3 bytes"], correct: 3, keyword: "variable length", explanation_en: "8051 instructions can be 1 byte (NOP), 2 bytes (MOV A,#data), or 3 bytes (LJMP addr16).", explanation_vn: "Lệnh 8051 có thể dài 1 byte, 2 byte hoặc 3 byte." },
-            { text: "Which instruction performs a conditional jump?", options: ["SJMP", "LJMP", "JZ", "CALL"], correct: 2, keyword: "JZ jump if zero", explanation_en: "JZ, JNZ, JC, JNC, JB, JNB are conditional jump instructions.", explanation_vn: "JZ, JNZ, JC, JNC, JB, JNB là các lệnh nhảy có điều kiện." },
-            { text: "Which instruction is used to call a subroutine?", options: ["CALL", "RET", "JMP", "JZ"], correct: 0, keyword: "ACALL/LCALL", explanation_en: "ACALL and LCALL are used to call subroutines; RET returns.", explanation_vn: "ACALL và LCALL dùng để gọi chương trình con; RET để trở về." },
-            { text: "What is the main difference between a Microcontroller and a Microprocessor?", options: ["MCU has CPU, RAM, ROM, I/O on one chip", "MCU is only for desktop computers", "MCU has no timer", "MCU is more expensive"], correct: 0, keyword: "MCU vs CPU", explanation_en: "Microcontroller integrates CPU, RAM, ROM, I/O, timers on a single chip.", explanation_vn: "Vi điều khiển tích hợp CPU, RAM, ROM, I/O, timer trên một chip." },
-            { text: "What architecture does AVR microcontroller use?", options: ["CISC", "RISC", "Von Neumann", "Pure Harvard"], correct: 1, keyword: "AVR RISC", explanation_en: "AVR uses RISC architecture; most instructions execute in one clock cycle.", explanation_vn: "AVR dùng kiến trúc RISC, hầu hết lệnh thực hiện trong 1 chu kỳ clock." },
-            { text: "What is the WREG register in PIC18 microcontrollers?", options: ["Program memory", "8-bit working register (accumulator)", "Stack pointer", "Address register"], correct: 1, keyword: "WREG working reg", explanation_en: "WREG is the working register (accumulator) in PIC microcontrollers.", explanation_vn: "WREG là thanh ghi làm việc (tích lũy) trong vi điều khiển PIC." },
-            { text: "Calculate: 7AH + 3FH (result in hex)", options: ["B9H", "C9H", "A9H", "B8H"], correct: 0, keyword: "hex addition", calculation: true, explanation_en: "7A + 3F = 122 + 63 = 185 = B9H", explanation_vn: "7A + 3F = 122 + 63 = 185 = B9H" },
-            { text: "Convert decimal 227 to binary:", options: ["11100011", "11100010", "11000011", "11110011"], correct: 0, keyword: "binary conversion", calculation: true, explanation_en: "227 = 128+64+32+2+1 = 11100011b", explanation_vn: "227 = 128+64+32+2+1 = 11100011b" },
-            { text: "What does ARM stand for?", options: ["Advanced RISC Machine", "Advanced Real-time Module", "Automated Register Manager", "Arithmetic RISC Micro"], correct: 0, keyword: "ARM", explanation_en: "ARM Holdings develops 32-bit RISC architecture.", explanation_vn: "ARM Holdings phát triển kiến trúc RISC 32-bit." },
-            { text: "Convert 0.625 to binary:", options: ["0.101", "0.110", "0.011", "0.111"], correct: 0, keyword: "fraction binary", calculation: true, explanation_en: "0.625×2=1.25 (1), 0.25×2=0.5 (0), 0.5×2=1.0 (1) → 0.101b", explanation_vn: "0.625×2=1.25 (1), 0.25×2=0.5 (0), 0.5×2=1.0 (1) → 0.101b" },
-            { text: "What is the 2's complement of 7 (in 8-bit)?", options: ["11111001", "00000111", "11111000", "10000111"], correct: 0, keyword: "2's complement", calculation: true, explanation_en: "7 = 00000111, invert → 11111000, +1 → 11111001", explanation_vn: "7 = 00000111, đảo bit → 11111000, +1 → 11111001" },
-            { text: "Which company produces PIC microcontrollers?", options: ["Intel", "Microchip", "Atmel", "ARM"], correct: 1, keyword: "Microchip PIC", explanation_en: "Microchip Technology produces PIC microcontroller families.", explanation_vn: "Microchip Technology sản xuất các dòng vi điều khiển PIC." },
-            { text: "What is the Harvard architecture characteristic?", options: ["Separate buses for program and data memory", "Same bus for program and data", "No cache memory", "Only for CISC"], correct: 0, keyword: "Harvard architecture", explanation_en: "Harvard architecture has physically separate memory and buses for instructions and data.", explanation_vn: "Kiến trúc Harvard có bus riêng cho bộ nhớ chương trình và dữ liệu." },
-            { text: "Which of the following is an 8-bit PIC microcontroller family?", options: ["PIC18", "ARM Cortex-M", "AVR Mega", "ESP32"], correct: 0, keyword: "PIC18 8-bit", explanation_en: "PIC18 is an 8-bit microcontroller family from Microchip.", explanation_vn: "PIC18 là dòng vi điều khiển 8-bit của Microchip." },
-            { text: "What does RISC stand for?", options: ["Reduced Instruction Set Computer", "Regular Instruction Set Computer", "Repeated Instruction Set Code", "Reduced Information Set Code"], correct: 0, keyword: "RISC", explanation_en: "RISC uses a small, highly optimized set of instructions.", explanation_vn: "RISC sử dụng tập lệnh nhỏ gọn, tối ưu." },
-            { text: "What is the maximum external code memory addressable by 8051?", options: ["16KB", "32KB", "64KB", "128KB"], correct: 2, keyword: "64KB external ROM", explanation_en: "8051 can address up to 64KB of external code memory (PSEN).", explanation_vn: "8051 có thể địa chỉ tối đa 64KB bộ nhớ chương trình ngoài (PSEN)." },
-            { text: "Which pin of 8051 is used to select external memory access?", options: ["EA", "PSEN", "ALE", "RST"], correct: 0, keyword: "EA pin", explanation_en: "EA = 0: external program memory; EA = 1: internal ROM first.", explanation_vn: "EA = 0: dùng bộ nhớ chương trình ngoài; EA = 1: dùng ROM nội trước." },
-            { text: "What is the frequency of ALE signal relative to XTAL?", options: ["1/2 clock", "1/4 clock", "1/6 clock", "Same as clock"], correct: 2, keyword: "ALE frequency", explanation_en: "ALE pulses at 1/6 of the crystal frequency.", explanation_vn: "ALE có tần số bằng 1/6 tần số thạch anh." },
-            { text: "Which register bank is active after reset?", options: ["Bank 0", "Bank 1", "Bank 2", "Bank 3"], correct: 0, keyword: "reset bank 0", explanation_en: "After reset, RS1=0, RS0=0 → Bank 0 (addresses 00H-07H).", explanation_vn: "Sau reset, RS1=0, RS0=0 → Bank 0 (địa chỉ 00H-07H)." },
-            { text: "What is the bit-addressable RAM area in 8051?", options: ["20H-2FH", "00H-1FH", "30H-7FH", "80H-FFH"], correct: 0, keyword: "bit-addressable 20H-2FH", explanation_en: "Bytes 20H to 2FH are bit-addressable (128 bits).", explanation_vn: "Các byte 20H đến 2FH có thể đánh địa chỉ bit (128 bit)." },
-            { text: "What is the purpose of the PSEN pin?", options: ["Read external program memory", "Write external data memory", "Reset the CPU", "Latch address"], correct: 0, keyword: "PSEN", explanation_en: "PSEN (Program Store Enable) enables reading from external code memory.", explanation_vn: "PSEN (Program Store Enable) cho phép đọc bộ nhớ chương trình ngoài." },
-            { text: "How many 16-bit timers does the standard 8051 have?", options: ["1", "2", "3", "4"], correct: 1, keyword: "2 timers", explanation_en: "Standard 8051 has two 16-bit timers: Timer 0 and Timer 1.", explanation_vn: "8051 chuẩn có hai bộ định thời 16-bit: Timer 0 và Timer 1." },
-            { text: "What is the width of the Data Pointer (DPTR) in 8051?", options: ["8-bit", "16-bit", "32-bit", "12-bit"], correct: 1, keyword: "DPTR 16-bit", explanation_en: "DPTR is a 16-bit register used to access external memory.", explanation_vn: "DPTR là thanh ghi 16-bit dùng để truy xuất bộ nhớ ngoài." }
+        0: [ // Chương 1: 25 câu
+            { text: "What is the size of internal ROM in the standard 8051 microcontroller?", options: ["1 KB", "2 KB", "4 KB", "8 KB"], correct: 2, keyword: "4KB ROM", explanation_en: "The standard 8051 has 4KB of on-chip ROM.", explanation_vn: "8051 chuẩn có 4KB ROM nội." },
+            { text: "How many general purpose registers (R0-R7) does 8051 have at any one time?", options: ["8", "16", "32", "64"], correct: 0, keyword: "8 registers", explanation_en: "Only one register bank is active at a time → 8 registers.", explanation_vn: "Chỉ 1 bank thanh ghi hoạt động tại 1 thời điểm → 8 thanh ghi." },
+            { text: "What is the special function of Port 0 on the 8051?", options: ["Data output only", "Data input only", "Multiplexed address/data bus", "Interrupt control"], correct: 2, keyword: "P0 multiplexed", explanation_en: "Port 0 is multiplexed low address bus (A0-A7) and data bus.", explanation_vn: "Cổng 0 là bus địa chỉ thấp và bus dữ liệu ghép kênh." },
+            { text: "What is the size of internal RAM in the standard 8051?", options: ["64 bytes", "128 bytes", "256 bytes", "512 bytes"], correct: 1, keyword: "128B RAM", explanation_en: "Standard 8051 has 128 bytes of internal RAM.", explanation_vn: "8051 chuẩn có 128 byte RAM nội." },
+            { text: "What is the SFR address of the PSW register?", options: ["0xD0", "0xE0", "0xF0", "0xA0"], correct: 0, keyword: "PSW D0H", explanation_en: "PSW is at SFR address D0H.", explanation_vn: "PSW ở địa chỉ SFR D0H." },
+            { text: "What does 'MOV A, #25H' do?", options: ["Move value 25H into A", "Move memory content at 25H into A", "Move address 25H into A", "Invalid"], correct: 0, keyword: "immediate addressing", explanation_en: "'#' means immediate addressing, loads value directly.", explanation_vn: "'#' là định địa chỉ tức thời, nạp trực tiếp giá trị." },
+            { text: "Which instruction rotates A left through Carry?", options: ["RLC A", "RRC A", "RL A", "RR A"], correct: 0, keyword: "RLC A", explanation_en: "RLC A rotates left through Carry flag.", explanation_vn: "RLC A xoay trái qua cờ Carry." },
+            { text: "Instruction lengths in 8051 can be?", options: ["1 byte", "2 bytes", "3 bytes", "All of above"], correct: 3, keyword: "variable length", explanation_en: "Instructions: 1, 2, or 3 bytes.", explanation_vn: "Lệnh dài 1, 2 hoặc 3 byte." },
+            { text: "Which instruction is a conditional jump?", options: ["SJMP", "LJMP", "JZ", "CALL"], correct: 2, keyword: "JZ", explanation_en: "JZ jumps if accumulator is zero.", explanation_vn: "JZ nhảy nếu A bằng 0." },
+            { text: "Which instruction calls a subroutine?", options: ["CALL", "RET", "JMP", "JZ"], correct: 0, keyword: "ACALL/LCALL", explanation_en: "ACALL/LCALL call subroutines.", explanation_vn: "ACALL/LCALL gọi chương trình con." },
+            { text: "Difference between Microcontroller and Microprocessor?", options: ["MCU has CPU,RAM,ROM,I/O on chip", "MCU for desktops only", "MCU has no timer", "MCU expensive"], correct: 0, keyword: "MCU integrated", explanation_en: "Microcontroller integrates everything on one chip.", explanation_vn: "Vi điều khiển tích hợp mọi thứ trên một chip." },
+            { text: "What architecture does AVR use?", options: ["CISC", "RISC", "Von Neumann", "Harvard"], correct: 1, keyword: "AVR RISC", explanation_en: "AVR uses RISC architecture.", explanation_vn: "AVR dùng kiến trúc RISC." },
+            { text: "WREG in PIC18 is?", options: ["Program memory", "8-bit working register", "Stack pointer", "Address register"], correct: 1, keyword: "WREG", explanation_en: "WREG is working register (accumulator) in PIC.", explanation_vn: "WREG là thanh ghi làm việc trong PIC." },
+            { text: "Calculate: 7AH + 3FH = ? (hex)", options: ["B9H", "C9H", "A9H", "B8H"], correct: 0, keyword: "hex addition", calculation: true, explanation_en: "7A+3F = 122+63=185 = B9H", explanation_vn: "7A+3F = 122+63=185 = B9H", fx580: "Bấm: 7 A + 3 F = → ▶ → chọn HEX" },
+            { text: "Convert 227 to binary:", options: ["11100011", "11100010", "11000011", "11110011"], correct: 0, keyword: "binary", calculation: true, explanation_en: "227 = 128+64+32+2+1 = 11100011b", explanation_vn: "227 = 128+64+32+2+1 = 11100011b", fx580: "Bấm: 227 = → ▶ → chọn BIN" },
+            { text: "What does ARM stand for?", options: ["Advanced RISC Machine", "Advanced Real-time Module", "Automated Register Manager", "Arithmetic RISC Micro"], correct: 0, keyword: "ARM", explanation_en: "Advanced RISC Machine.", explanation_vn: "Advanced RISC Machine." },
+            { text: "Convert 0.625 to binary:", options: ["0.101", "0.110", "0.011", "0.111"], correct: 0, keyword: "fraction binary", calculation: true, explanation_en: "0.625×2=1.25(1), 0.25×2=0.5(0), 0.5×2=1.0(1) → 0.101b", explanation_vn: "0.625×2=1.25(1), 0.25×2=0.5(0), 0.5×2=1.0(1) → 0.101b" },
+            { text: "2's complement of 7 (8-bit)?", options: ["11111001", "00000111", "11111000", "10000111"], correct: 0, keyword: "2's complement", calculation: true, explanation_en: "7=00000111 → invert 11111000 → +1 = 11111001", explanation_vn: "7=00000111 → đảo 11111000 → +1 = 11111001", fx580: "Bấm: 7 → ▶ chọn BIN (00000111) → đảo bit thủ công" },
+            { text: "Which company produces PIC?", options: ["Intel", "Microchip", "Atmel", "ARM"], correct: 1, keyword: "Microchip", explanation_en: "Microchip Technology produces PIC.", explanation_vn: "Microchip sản xuất PIC." },
+            { text: "Harvard architecture has?", options: ["Separate buses for program and data", "Same bus", "No cache", "Only CISC"], correct: 0, keyword: "Harvard", explanation_en: "Separate buses for instructions and data.", explanation_vn: "Bus riêng cho lệnh và dữ liệu." },
+            { text: "8-bit PIC family?", options: ["PIC18", "ARM Cortex-M", "AVR Mega", "ESP32"], correct: 0, keyword: "PIC18", explanation_en: "PIC18 is 8-bit Microchip family.", explanation_vn: "PIC18 là dòng 8-bit của Microchip." },
+            { text: "RISC stands for?", options: ["Reduced Instruction Set Computer", "Regular Instruction Set", "Repeated Instruction Set", "Reduced Information Set"], correct: 0, keyword: "RISC", explanation_en: "Reduced Instruction Set Computer.", explanation_vn: "Reduced Instruction Set Computer." },
+            { text: "Max external code memory for 8051?", options: ["16KB", "32KB", "64KB", "128KB"], correct: 2, keyword: "64KB", explanation_en: "8051 addresses up to 64KB external ROM.", explanation_vn: "8051 địa chỉ tối đa 64KB ROM ngoài." },
+            { text: "Which pin selects external memory?", options: ["EA", "PSEN", "ALE", "RST"], correct: 0, keyword: "EA pin", explanation_en: "EA=0 uses external memory.", explanation_vn: "EA=0 dùng bộ nhớ ngoài." },
+            { text: "ALE frequency relative to XTAL?", options: ["1/2", "1/4", "1/6", "Same"], correct: 2, keyword: "ALE 1/6", explanation_en: "ALE = 1/6 of crystal frequency.", explanation_vn: "ALE = 1/6 tần số thạch anh." }
         ],
-        
-        1: [ // Chapter 2 - 30 questions - 8051 Architecture
-            { text: "What is the value of the Stack Pointer (SP) after a system reset?", options: ["00H", "07H", "FFH", "60H"], correct: 1, keyword: "SP=07H reset", explanation_en: "After reset, SP is initialized to 07H.", explanation_vn: "Sau reset, SP được khởi tạo bằng 07H." },
-            { text: "What are the RS1 and RS0 bits in PSW used for?", options: ["Select register bank", "Select interrupt priority", "Control timer", "Control serial port"], correct: 0, keyword: "RS1 RS0 bank select", explanation_en: "RS1 and RS0 select one of four register banks.", explanation_vn: "RS1 và RS0 chọn một trong bốn bank thanh ghi." },
-            { text: "When does the OV (Overflow) flag get set in PSW?", options: ["Signed addition/subtraction result out of -128..+127 range", "Carry out of bit 7", "Parity is odd", "Timer overflow"], correct: 0, keyword: "OV overflow signed", explanation_en: "OV is set when signed arithmetic result exceeds +127 or goes below -128.", explanation_vn: "OV được set khi kết quả số có dấu vượt quá +127 hoặc dưới -128." },
-            { text: "What is the dual function of Port 2 on 8051?", options: ["I/O and high address bus (A8-A15)", "I/O and data bus", "Only I/O", "Interrupt pins"], correct: 0, keyword: "P2 high address", explanation_en: "Port 2 serves as I/O or the high byte of the address bus (A8-A15).", explanation_vn: "Cổng 2 là I/O hoặc byte cao của bus địa chỉ (A8-A15)." },
-            { text: "Which port pins have alternate functions for external interrupts?", options: ["P3.2 (INT0) and P3.3 (INT1)", "P1.0 and P1.1", "P2.0 and P2.1", "P0.0 and P0.1"], correct: 0, keyword: "INT0 INT1 on P3", explanation_en: "INT0 is on P3.2, INT1 is on P3.3.", explanation_vn: "INT0 ở P3.2, INT1 ở P3.3." },
-            { text: "What is the function of the B register in 8051?", options: ["Used with A for multiply/divide", "Stack pointer", "Program counter", "Data pointer"], correct: 0, keyword: "B register MUL DIV", explanation_en: "MUL AB and DIV AB use the B register for the high byte or remainder.", explanation_vn: "MUL AB và DIV AB dùng thanh ghi B cho byte cao hoặc phần dư." },
-            { text: "What is the parity bit P in PSW based on?", options: ["Number of 1s in accumulator", "Number of 0s in accumulator", "Carry flag", "Overflow flag"], correct: 0, keyword: "parity P", explanation_en: "P bit is set to make the total number of 1s in A + P even.", explanation_vn: "Bit P được set để tổng số bit 1 trong A + P là chẵn." },
-            { text: "Which addressing mode is used in 'MOV A, @R1'?", options: ["Indirect", "Direct", "Immediate", "Register"], correct: 0, keyword: "@Ri indirect", explanation_en: "@R1 indicates indirect addressing using R1 as a pointer.", explanation_vn: "@R1 chỉ định địa chỉ gián tiếp dùng R1 làm con trỏ." },
-            { text: "What is the width of the Program Counter (PC) in 8051?", options: ["8-bit", "16-bit", "12-bit", "14-bit"], correct: 1, keyword: "PC 16-bit", explanation_en: "The Program Counter is 16-bit, allowing 64KB addressing.", explanation_vn: "Bộ đếm chương trình 16-bit, cho phép địa chỉ 64KB." },
-            { text: "What is the function of the ALE pin?", options: ["Latch address from P0", "Enable external ROM", "Reset the CPU", "Clock output"], correct: 0, keyword: "ALE address latch", explanation_en: "ALE (Address Latch Enable) latches the low byte of the address from P0.", explanation_vn: "ALE chốt địa chỉ byte thấp từ cổng P0." },
-            { text: "What is the reset value of all ports (P0, P1, P2, P3)?", options: ["00H", "FFH", "07H", "80H"], correct: 1, keyword: "ports FFH after reset", explanation_en: "After reset, all ports are set to FFH (all pins high).", explanation_vn: "Sau reset, tất cả các cổng được set thành FFH (các chân ở mức cao)." },
-            { text: "What is the address range of SFRs in 8051?", options: ["00H-7FH", "80H-FFH", "00H-FFH", "80H-8FH"], correct: 1, keyword: "SFR 80H-FFH", explanation_en: "Special Function Registers occupy addresses 80H to FFH.", explanation_vn: "Các thanh ghi chức năng đặc biệt chiếm địa chỉ 80H đến FFH." },
-            { text: "Which instruction clears the Carry flag?", options: ["CLR C", "SETB C", "CPL C", "MOV C, #0"], correct: 0, keyword: "CLR C", explanation_en: "CLR C clears the Carry flag to 0.", explanation_vn: "CLR C xóa cờ Carry về 0." },
-            { text: "What is the function of the RETI instruction?", options: ["Return from interrupt", "Return from subroutine", "Reset the system", "Enable interrupts"], correct: 0, keyword: "RETI", explanation_en: "RETI returns from interrupt and re-enables interrupts.", explanation_vn: "RETI trở về từ ngắt và cho phép lại ngắt." },
-            { text: "Which of the following is a bit-addressable SFR?", options: ["P0 (80H)", "SBUF (99H)", "TMOD (89H)", "PCON (87H)"], correct: 0, keyword: "P0 bit-addressable", explanation_en: "Port 0 at address 80H is bit-addressable (80H-87H).", explanation_vn: "Cổng 0 tại địa chỉ 80H có thể đánh địa chỉ bit (80H-87H)." },
-            { text: "What is the purpose of the GATE bit in TMOD?", options: ["Enable timer only when INT pin is high", "Gate the clock", "Stop the timer", "Reset the timer"], correct: 0, keyword: "GATE bit", explanation_en: "When GATE=1, timer runs only while corresponding INT pin is high.", explanation_vn: "Khi GATE=1, timer chỉ chạy khi chân INT tương ứng ở mức cao." },
-            { text: "How many bytes of stack can be used in 8051?", options: ["Up to 128 bytes", "Up to 256 bytes", "Up to 64 bytes", "Up to 32 bytes"], correct: 0, keyword: "stack limit 128B", explanation_en: "Stack can grow from 07H up to 7FH (120 bytes max).", explanation_vn: "Stack có thể tăng từ 07H lên đến 7FH (tối đa 120 byte)." },
-            { text: "What is the function of the CJNE instruction?", options: ["Compare and jump if not equal", "Compare and jump if equal", "Call if not equal", "Jump if carry set"], correct: 0, keyword: "CJNE", explanation_en: "CJNE compares two operands and jumps if they are not equal.", explanation_vn: "CJNE so sánh hai toán hạng và nhảy nếu không bằng nhau." },
-            { text: "Which register holds the current program status?", options: ["PSW", "PC", "SP", "DPTR"], correct: 0, keyword: "PSW status", explanation_en: "PSW (Program Status Word) holds flags like Carry, Aux Carry, Overflow, Parity, Register bank select.", explanation_vn: "PSW chứa các cờ như Carry, Aux Carry, Overflow, Parity, chọn bank thanh ghi." },
-            { text: "What happens when the timer overflows in Mode 1?", options: ["TF flag is set", "Timer stops", "Timer resets to 0", "All of the above"], correct: 3, keyword: "timer overflow mode 1", explanation_en: "When timer overflows from FFFFh to 0000h, TF is set. It can be stopped by clearing TR, but auto-reload does not happen in Mode 1.", explanation_vn: "Khi timer tràn từ FFFFh xuống 0000h, TF được set. Có thể dừng bằng cách xóa TR, nhưng không tự động nạp lại trong Mode 1." },
-            { text: "What is the address of Timer 0 low byte (TL0)?", options: ["8AH", "8BH", "8CH", "8DH"], correct: 0, keyword: "TL0 8AH", explanation_en: "TL0 is at SFR address 8AH.", explanation_vn: "TL0 ở địa chỉ SFR 8AH." },
-            { text: "What is the address of Timer 0 high byte (TH0)?", options: ["8AH", "8BH", "8CH", "8DH"], correct: 2, keyword: "TH0 8CH", explanation_en: "TH0 is at SFR address 8CH.", explanation_vn: "TH0 ở địa chỉ SFR 8CH." },
-            { text: "What is the function of the SWAP A instruction?", options: ["Swap nibbles of A", "Swap A and B", "Swap A and R0", "Swap A and @R0"], correct: 0, keyword: "SWAP A", explanation_en: "SWAP A exchanges the high and low nibbles (4 bits) of accumulator A.", explanation_vn: "SWAP A đổi chỗ nibble cao và nibble thấp của thanh ghi A." },
-            { text: "Which of the following is a valid way to set bit P1.0 in C for 8051?", options: ["P1_0 = 1;", "P1.0 = 1;", "P1^0 = 1;", "P1_0 = 1; using sbit"], correct: 3, keyword: "sbit P1_0 = P1^0", explanation_en: "In 8051 C, use 'sbit P1_0 = P1^0;' then 'P1_0 = 1;'", explanation_vn: "Trong C cho 8051, dùng 'sbit P1_0 = P1^0;' sau đó 'P1_0 = 1;'" },
-            { text: "What is the DJNZ instruction used for?", options: ["Decrement and jump if not zero", "Decrement and jump if zero", "Decrement and jump", "Jump if not zero"], correct: 0, keyword: "DJNZ", explanation_en: "DJNZ decrements the register and jumps to label if the result is not zero.", explanation_vn: "DJNZ giảm thanh ghi và nhảy nếu kết quả khác không." },
-            { text: "What is the maximum count value for a 13-bit timer (Mode 0)?", options: ["8191", "65535", "255", "4095"], correct: 0, keyword: "mode 0 13-bit", explanation_en: "Mode 0 is 13-bit timer, counting from 0 to 8191 (1FFFh).", explanation_vn: "Mode 0 là timer 13-bit, đếm từ 0 đến 8191 (1FFFh)." },
-            { text: "Which SFR controls the serial port operation mode?", options: ["SCON", "SBUF", "TMOD", "TCON"], correct: 0, keyword: "SCON serial control", explanation_en: "SCON (Serial Control) register configures the serial port mode.", explanation_vn: "Thanh ghi SCON cấu hình chế độ hoạt động của cổng serial." },
-            { text: "What is the function of the TI flag in SCON?", options: ["Transmit interrupt flag", "Receive interrupt flag", "Timer interrupt flag", "Start transmission"], correct: 0, keyword: "TI transmit interrupt", explanation_en: "TI is set when a byte has been transmitted.", explanation_vn: "TI được set khi một byte đã được phát xong." },
-            { text: "What is the function of the RI flag in SCON?", options: ["Receive interrupt flag", "Transmit interrupt flag", "Ready interrupt", "Reset interrupt"], correct: 0, keyword: "RI receive interrupt", explanation_en: "RI is set when a byte has been received.", explanation_vn: "RI được set khi một byte đã được nhận." },
-            { text: "Which register holds the serial data?", options: ["SBUF", "SCON", "PCON", "TMOD"], correct: 0, keyword: "SBUF serial buffer", explanation_en: "SBUF (Serial Buffer) holds the data to transmit or received data.", explanation_vn: "SBUF (Serial Buffer) chứa dữ liệu để phát hoặc đã nhận." }
+        1: [ // Chương 2 - 25 câu kiến trúc
+            { text: "Stack Pointer (SP) value after reset?", options: ["00H", "07H", "FFH", "60H"], correct: 1, keyword: "SP=07H", explanation_en: "SP initializes to 07H after reset.", explanation_vn: "SP = 07H sau reset." },
+            { text: "RS1,RS0 bits in PSW are for?", options: ["Select register bank", "Select interrupt priority", "Control timer", "Control serial"], correct: 0, keyword: "bank select", explanation_en: "RS1,RS0 select one of 4 register banks.", explanation_vn: "RS1,RS0 chọn 1 trong 4 bank thanh ghi." },
+            { text: "When is OV flag set?", options: ["Signed overflow beyond -128..+127", "Carry out bit7", "Parity odd", "Timer overflow"], correct: 0, keyword: "OV overflow", explanation_en: "OV set when signed result exceeds +127 or below -128.", explanation_vn: "OV set khi kết quả có dấu vượt quá +127 hoặc dưới -128." },
+            { text: "Port 2 dual function?", options: ["I/O and high address bus (A8-A15)", "I/O and data bus", "Only I/O", "Interrupt pins"], correct: 0, keyword: "P2 high address", explanation_en: "Port 2 = I/O or high byte address bus.", explanation_vn: "Cổng 2 = I/O hoặc bus địa chỉ cao." },
+            { text: "External interrupts on which pins?", options: ["P3.2 (INT0) and P3.3 (INT1)", "P1.0,P1.1", "P2.0,P2.1", "P0.0,P0.1"], correct: 0, keyword: "INT0 INT1", explanation_en: "INT0 on P3.2, INT1 on P3.3.", explanation_vn: "INT0 ở P3.2, INT1 ở P3.3." },
+            { text: "B register used for?", options: ["Multiply/Divide with A", "Stack pointer", "Program counter", "Data pointer"], correct: 0, keyword: "MUL DIV", explanation_en: "MUL AB and DIV AB use B register.", explanation_vn: "MUL AB và DIV AB dùng thanh ghi B." },
+            { text: "Parity bit P in PSW based on?", options: ["Number of 1s in A", "Number of 0s in A", "Carry", "Overflow"], correct: 0, keyword: "parity", explanation_en: "P makes total 1s in A+P even.", explanation_vn: "P để tổng số bit 1 trong A+P là chẵn." },
+            { text: "Addressing mode of 'MOV A, @R1'?", options: ["Indirect", "Direct", "Immediate", "Register"], correct: 0, keyword: "@Ri indirect", explanation_en: "@R1 is indirect addressing using R1 as pointer.", explanation_vn: "@R1 là định địa chỉ gián tiếp." },
+            { text: "Program Counter width?", options: ["8-bit", "16-bit", "12-bit", "14-bit"], correct: 1, keyword: "PC 16-bit", explanation_en: "16-bit PC → 64KB addressing.", explanation_vn: "PC 16-bit → địa chỉ 64KB." },
+            { text: "ALE pin function?", options: ["Latch address from P0", "Enable external ROM", "Reset", "Clock output"], correct: 0, keyword: "ALE latch", explanation_en: "ALE latches low address byte from P0.", explanation_vn: "ALE chốt địa chỉ thấp từ P0." },
+            { text: "Port values after reset?", options: ["00H", "FFH", "07H", "80H"], correct: 1, keyword: "ports FFH", explanation_en: "All ports = FFH after reset.", explanation_vn: "Tất cả cổng = FFH sau reset." },
+            { text: "SFR address range?", options: ["00H-7FH", "80H-FFH", "00H-FFH", "80H-8FH"], correct: 1, keyword: "SFR 80H-FFH", explanation_en: "SFRs occupy 80H to FFH.", explanation_vn: "SFR chiếm 80H-FFH." },
+            { text: "Instruction to clear Carry?", options: ["CLR C", "SETB C", "CPL C", "MOV C,#0"], correct: 0, keyword: "CLR C", explanation_en: "CLR C clears Carry flag.", explanation_vn: "CLR C xóa cờ Carry." },
+            { text: "RETI instruction does?", options: ["Return from interrupt", "Return from subroutine", "Reset", "Enable interrupts"], correct: 0, keyword: "RETI", explanation_en: "RETI returns from ISR and re-enables interrupts.", explanation_vn: "RETI trở về từ ngắt và cho phép lại ngắt." },
+            { text: "Bit-addressable SFR example?", options: ["P0 (80H)", "SBUF (99H)", "TMOD (89H)", "PCON (87H)"], correct: 0, keyword: "P0 bit-addr", explanation_en: "Port 0 at 80H is bit-addressable.", explanation_vn: "Cổng 0 tại 80H có địa chỉ bit." },
+            { text: "GATE bit in TMOD does?", options: ["Timer runs only if INT pin high", "Gate clock", "Stop timer", "Reset timer"], correct: 0, keyword: "GATE", explanation_en: "GATE=1 → timer runs only while INT pin high.", explanation_vn: "GATE=1 → timer chỉ chạy khi chân INT cao." },
+            { text: "Max stack size?", options: ["~120 bytes", "256 bytes", "64 bytes", "32 bytes"], correct: 0, keyword: "stack limit", explanation_en: "Stack from 07H to 7FH ≈ 120 bytes.", explanation_vn: "Stack từ 07H đến 7FH ≈ 120 byte." },
+            { text: "CJNE instruction?", options: ["Compare and jump if not equal", "Compare and jump if equal", "Call if not equal", "Jump if carry"], correct: 0, keyword: "CJNE", explanation_en: "CJNE jumps if operands not equal.", explanation_vn: "CJNE nhảy nếu không bằng nhau." },
+            { text: "Which register holds status flags?", options: ["PSW", "PC", "SP", "DPTR"], correct: 0, keyword: "PSW", explanation_en: "PSW holds Carry, Aux Carry, Overflow, Parity.", explanation_vn: "PSW chứa Carry, Aux Carry, Overflow, Parity." },
+            { text: "Timer overflow in Mode 1?", options: ["TF set", "Timer stops", "Timer resets", "All of above"], correct: 3, keyword: "overflow", explanation_en: "TF set, timer resets to 0, can stop by clearing TR.", explanation_vn: "TF được set, timer về 0, có thể dừng bằng TR." },
+            { text: "TL0 address?", options: ["8AH", "8BH", "8CH", "8DH"], correct: 0, keyword: "TL0 8AH", explanation_en: "TL0 SFR address = 8AH.", explanation_vn: "TL0 địa chỉ SFR = 8AH." },
+            { text: "TH0 address?", options: ["8AH", "8BH", "8CH", "8DH"], correct: 2, keyword: "TH0 8CH", explanation_en: "TH0 SFR address = 8CH.", explanation_vn: "TH0 địa chỉ SFR = 8CH." },
+            { text: "SWAP A does?", options: ["Swap nibbles of A", "Swap A and B", "Swap A and R0", "Swap A and @R0"], correct: 0, keyword: "SWAP", explanation_en: "SWAP exchanges high and low nibbles of A.", explanation_vn: "SWAP đổi nibble cao và thấp của A." },
+            { text: "DJNZ instruction?", options: ["Decrement and jump if not zero", "Decrement and jump if zero", "Decrement and jump", "Jump if not zero"], correct: 0, keyword: "DJNZ", explanation_en: "DJNZ decrements and jumps if result ≠ 0.", explanation_vn: "DJNZ giảm và nhảy nếu kết quả ≠ 0." },
+            { text: "Mode 0 timer max count?", options: ["8191", "65535", "255", "4095"], correct: 0, keyword: "mode 0 13-bit", explanation_en: "13-bit timer counts 0 to 8191 (1FFFh).", explanation_vn: "Timer 13-bit đếm 0 đến 8191 (1FFFh)." }
         ],
-        
-        2: [ // Chapter 3 - 30 questions - C Programming, Timer, Serial, Interrupt
-            { text: "Which C data type is used to access a single bit of an SFR or port in 8051 C?", options: ["sbit", "bit", "unsigned char", "sfr"], correct: 0, keyword: "sbit bit-addressable", explanation_en: "'sbit' allows accessing individual bits of bit-addressable SFRs or ports.", explanation_vn: "'sbit' cho phép truy cập từng bit của SFR hoặc cổng có địa chỉ bit." },
-            { text: "What is the machine cycle time for 8051 with 12 MHz crystal?", options: ["1 µs", "0.5 µs", "2 µs", "1.085 µs"], correct: 0, keyword: "12MHz → 1µs", explanation_en: "With 12MHz crystal, each machine cycle = 12/12MHz = 1µs.", explanation_vn: "Với thạch anh 12MHz, 1 chu kỳ máy = 12/12MHz = 1µs." },
-            { text: "What is the machine cycle time for 8051 with 11.0592 MHz crystal?", options: ["1 µs", "0.9216 µs", "1.085 µs", "2 µs"], correct: 2, keyword: "11.0592MHz 1.085µs", explanation_en: "1 machine cycle = 12/11.0592MHz ≈ 1.085µs.", explanation_vn: "1 chu kỳ máy = 12/11.0592MHz ≈ 1.085µs." },
-            { text: "Which Timer mode in 8051 is 8-bit with auto-reload?", options: ["Mode 0", "Mode 1", "Mode 2", "Mode 3"], correct: 2, keyword: "mode 2 auto-reload", explanation_en: "Mode 2 is 8-bit timer with automatic reload from TH when TL overflows.", explanation_vn: "Mode 2 là timer 8-bit tự động nạp lại từ TH khi TL tràn." },
-            { text: "What is the maximum count value of Timer 0 in Mode 1 (16-bit)?", options: ["0xFF", "0xFFFF", "0x1FFF", "0x7FFF"], correct: 1, keyword: "mode 1 16-bit FFFFh", explanation_en: "16-bit timer counts from 0000 to FFFFh (65535).", explanation_vn: "Timer 16-bit đếm từ 0000 đến FFFFh (65535)." },
-            { text: "To generate a 50ms delay using Timer 0 Mode 1 with 12MHz XTAL, what value should be loaded? (65536 - 50000 = 15536 = 0x3CB0)", options: ["TH0=0x3C, TL0=0xB0", "TH0=0xB0, TL0=0x3C", "TH0=0x4E, TL0=0x20", "TH0=0x20, TL0=0x4E"], correct: 0, keyword: "timer calculation 15536", calculation: true, explanation_en: "50000µs delay needs 50000 counts, initial value = 65536-50000=15536 = 0x3CB0 → TH=0x3C, TL=0xB0.", explanation_vn: "Delay 50000µs cần 50000 đếm, giá trị nạp = 65536-50000=15536 = 0x3CB0 → TH=0x3C, TL=0xB0." },
-            { text: "Which bit in TMOD selects Timer or Counter mode?", options: ["C/T", "GATE", "M0", "M1"], correct: 0, keyword: "C/T bit", explanation_en: "C/T = 0 for Timer (internal clock), C/T = 1 for Counter (external T0/T1 pin).", explanation_vn: "C/T = 0 là Timer (clock nội), C/T = 1 là Counter (chân T0/T1 ngoài)." },
-            { text: "What is the baud rate formula for 8051 serial port Mode 1?", options: ["(2^SMOD / 32) × (Timer1 overflow rate)", "XTAL/12", "XTAL/2", "(SMOD/32) × XTAL"], correct: 0, keyword: "baud rate mode 1", explanation_en: "Baud rate = (2^SMOD / 32) × (Timer1 overflow rate).", explanation_vn: "Tốc độ baud = (2^SMOD / 32) × (tốc độ tràn Timer1)." },
-            { text: "Which register holds the serial data to transmit or received data?", options: ["SBUF", "SCON", "TMOD", "TCON"], correct: 0, keyword: "SBUF serial buffer", explanation_en: "SBUF (Serial Buffer) holds data for transmission or reception.", explanation_vn: "SBUF (Serial Buffer) chứa dữ liệu để phát hoặc đã nhận." },
-            { text: "What is the interrupt vector address for Timer 0?", options: ["000BH", "0003H", "0013H", "0023H"], correct: 0, keyword: "Timer 0 vector 000BH", explanation_en: "Timer 0 interrupt vector is at address 000BH.", explanation_vn: "Vector ngắt Timer 0 tại địa chỉ 000BH." },
-            { text: "What is the interrupt vector address for external interrupt 0 (INT0)?", options: ["0003H", "000BH", "0013H", "0023H"], correct: 0, keyword: "INT0 vector 0003H", explanation_en: "External interrupt 0 vector is at address 0003H.", explanation_vn: "Vector ngắt ngoài 0 tại địa chỉ 0003H." },
-            { text: "What is the interrupt vector address for serial port (RI/TI)?", options: ["0023H", "001BH", "0013H", "000BH"], correct: 0, keyword: "serial vector 0023H", explanation_en: "Serial port interrupt vector is at address 0023H.", explanation_vn: "Vector ngắt cổng serial tại địa chỉ 0023H." },
-            { text: "Which operator in C is used to toggle a bit in 8051 programming?", options: ["^ (XOR)", "& (AND)", "| (OR)", "~ (NOT)"], correct: 0, keyword: "XOR toggle bit", explanation_en: "Using XOR (^) with 1 toggles a bit: P1 ^= 0x01;", explanation_vn: "Dùng XOR (^) với 1 để đảo bit: P1 ^= 0x01;" },
-            { text: "What is the purpose of the 'sfr' keyword in 8051 C?", options: ["Define SFR address", "Define bit variable", "Define function", "Define array"], correct: 0, keyword: "sfr special function register", explanation_en: "'sfr' defines a special function register at a specific address.", explanation_vn: "'sfr' định nghĩa thanh ghi chức năng đặc biệt tại địa chỉ cụ thể." },
-            { text: "Write C code to toggle only bit P2.4 without affecting other bits:", options: ["P2 ^= 0x10;", "P2 = 0x10;", "P2 |= 0x10;", "P2 &= ~0x10;"], correct: 0, keyword: "toggle bit XOR", explanation_en: "P2 ^= 0x10 toggles only bit 4 (0x10 = 00010000b).", explanation_vn: "P2 ^= 0x10 đảo chỉ bit 4 (0x10 = 00010000b)." },
-            { text: "In 8051 C, how do you create a simple delay using a for loop?", options: ["for(i=0;i<1000;i++);", "delay(1000);", "wait(1000);", "sleep(1000);"], correct: 0, keyword: "for loop delay", explanation_en: "A simple for loop can create a delay, but it's not precise.", explanation_vn: "Vòng lặp for đơn giản có thể tạo delay, nhưng không chính xác." },
-            { text: "What is the advantage of using timer delay over for-loop delay?", options: ["More accurate", "Uses less code", "Doesn't block CPU", "All of the above"], correct: 3, keyword: "timer advantage", explanation_en: "Timer delay is accurate, non-blocking if using interrupts.", explanation_vn: "Delay bằng timer chính xác, không chặn CPU nếu dùng ngắt." },
-            { text: "What is the value of TMOD to set Timer 0 in Mode 1 (16-bit timer)?", options: ["0x01", "0x02", "0x10", "0x20"], correct: 0, keyword: "TMOD 0x01", explanation_en: "Lower 4 bits: M1=0, M0=1 for Mode 1, C/T=0 → 0001b = 0x01.", explanation_vn: "4 bit thấp: M1=0, M0=1 cho Mode 1, C/T=0 → 0001b = 0x01." },
-            { text: "What is the value of TMOD to set Timer 1 in Mode 2 (8-bit auto-reload)?", options: ["0x20", "0x02", "0x10", "0x01"], correct: 0, keyword: "TMOD 0x20", explanation_en: "Upper 4 bits: M1=1, M0=0 for Mode 2 → 0010b << 4 = 0x20.", explanation_vn: "4 bit cao: M1=1, M0=0 cho Mode 2 → 0010b << 4 = 0x20." },
-            { text: "Which TCON bit starts Timer 0?", options: ["TR0", "TR1", "TF0", "TF1"], correct: 0, keyword: "TR0 start timer", explanation_en: "TR0 (Timer Run 0) starts Timer 0 when set to 1.", explanation_vn: "TR0 (Timer Run 0) khởi động Timer 0 khi được set lên 1." },
-            { text: "Which TCON bit indicates Timer 0 overflow?", options: ["TF0", "TR0", "TF1", "TR1"], correct: 0, keyword: "TF0 overflow flag", explanation_en: "TF0 is set when Timer 0 overflows from FFFFh to 0000h.", explanation_vn: "TF0 được set khi Timer 0 tràn từ FFFFh xuống 0000h." },
-            { text: "What is the purpose of the IE (Interrupt Enable) register?", options: ["Enable/disable interrupts", "Set interrupt priority", "Clear interrupt flags", "Store interrupt vector"], correct: 0, keyword: "IE interrupt enable", explanation_en: "IE register enables or disables individual interrupts globally.", explanation_vn: "Thanh ghi IE cho phép hoặc vô hiệu hóa từng ngắt riêng biệt." },
-            { text: "Which bit in IE enables global interrupts?", options: ["EA", "ET0", "EX0", "ES"], correct: 0, keyword: "EA global enable", explanation_en: "EA (Enable All) must be set to enable any interrupt.", explanation_vn: "EA (Enable All) phải được set để cho phép bất kỳ ngắt nào." },
-            { text: "What is the purpose of the IP (Interrupt Priority) register?", options: ["Set interrupt priority levels", "Enable interrupts", "Clear interrupts", "Store interrupt flags"], correct: 0, keyword: "IP priority", explanation_en: "IP register sets high priority for each interrupt source.", explanation_vn: "Thanh ghi IP đặt ưu tiên cao cho từng nguồn ngắt." },
-            { text: "In 8051 C, how do you define an interrupt service routine for Timer 0?", options: ["void timer0_isr() interrupt 1", "void timer0_isr() interrupt 0", "void timer0_isr() using 1", "void timer0_isr()"], correct: 0, keyword: "interrupt 1", explanation_en: "Timer 0 uses interrupt number 1 in Keil C51.", explanation_vn: "Timer 0 dùng số hiệu ngắt 1 trong Keil C51." },
-            { text: "What is the interrupt number for external interrupt 0 in Keil C51?", options: ["0", "1", "2", "3"], correct: 0, keyword: "INT0 interrupt 0", explanation_en: "External interrupt 0 uses interrupt number 0.", explanation_vn: "Ngắt ngoài 0 dùng số hiệu ngắt 0." },
-            { text: "What is the interrupt number for serial port in Keil C51?", options: ["4", "3", "2", "5"], correct: 0, keyword: "serial interrupt 4", explanation_en: "Serial port uses interrupt number 4.", explanation_vn: "Cổng serial dùng số hiệu ngắt 4." },
-            { text: "Which function in 8051 C sends a character via serial port?", options: ["SBUF = c; while(!TI); TI=0;", "printf(c);", "putchar(c);", "send(c);"], correct: 0, keyword: "SBUF transmit", explanation_en: "Load SBUF, wait for TI flag, then clear TI.", explanation_vn: "Nạp SBUF, chờ cờ TI, sau đó xóa TI." },
-            { text: "Which function in 8051 C receives a character via serial port?", options: ["while(!RI); c=SBUF; RI=0;", "c=getchar();", "c=scanf();", "c=receive();"], correct: 0, keyword: "SBUF receive", explanation_en: "Wait for RI flag, read SBUF, then clear RI.", explanation_vn: "Chờ cờ RI, đọc SBUF, sau đó xóa RI." },
-            { text: "What is the baud rate for 8051 serial port when using Timer 1 Mode 2 with TH1=0xFD, SMOD=0, XTAL=11.0592MHz?", options: ["9600", "4800", "19200", "2400"], correct: 0, keyword: "9600 baud TH1=0xFD", calculation: true, explanation_en: "With 11.0592MHz, TH1=0xFD gives 9600 baud at SMOD=0.", explanation_vn: "Với 11.0592MHz, TH1=0xFD cho 9600 baud khi SMOD=0." }
+        2: [ // Chương 3 - 25 câu C/Timer/Serial/Interrupt
+            { text: "C data type for single bit access?", options: ["sbit", "bit", "unsigned char", "sfr"], correct: 0, keyword: "sbit", explanation_en: "'sbit' accesses individual bits of SFRs/ports.", explanation_vn: "'sbit' truy cập từng bit của SFR/cổng." },
+            { text: "Machine cycle time @12MHz?", options: ["1 µs", "0.5 µs", "2 µs", "1.085 µs"], correct: 0, keyword: "12MHz 1µs", explanation_en: "1 cycle = 12/12MHz = 1µs.", explanation_vn: "1 chu kỳ = 12/12MHz = 1µs." },
+            { text: "Machine cycle time @11.0592MHz?", options: ["1 µs", "0.9216 µs", "1.085 µs", "2 µs"], correct: 2, keyword: "1.085µs", explanation_en: "12/11.0592 ≈ 1.085µs.", explanation_vn: "12/11.0592 ≈ 1.085µs.", fx580: "Bấm: 12 ÷ 11.0592 = → 1.085µs" },
+            { text: "Timer mode with auto-reload?", options: ["Mode 0", "Mode 1", "Mode 2", "Mode 3"], correct: 2, keyword: "mode 2 auto-reload", explanation_en: "Mode 2 = 8-bit auto-reload timer.", explanation_vn: "Mode 2 = timer 8-bit tự động nạp lại." },
+            { text: "Max count in Mode 1 (16-bit)?", options: ["0xFF", "0xFFFF", "0x1FFF", "0x7FFF"], correct: 1, keyword: "FFFFh", explanation_en: "16-bit timer counts 0 to 65535.", explanation_vn: "Timer 16-bit đếm 0 đến 65535." },
+            { text: "50ms delay @12MHz: TH0,TL0 = ? (65536-50000=15536=0x3CB0)", options: ["TH0=0x3C, TL0=0xB0", "TH0=0xB0,TL0=0x3C", "TH0=0x4E,TL0=0x20", "TH0=0x20,TL0=0x4E"], correct: 0, keyword: "15536 3CB0", calculation: true, explanation_en: "65536-50000=15536=0x3CB0 → TH=0x3C, TL=0xB0", explanation_vn: "65536-50000=15536=0x3CB0 → TH=0x3C, TL=0xB0", fx580: "Bấm: 65536 - 50000 = → ▶ chọn HEX → 3CB0" },
+            { text: "C/T bit in TMOD selects?", options: ["Timer/Counter", "Gate", "Mode", "Start"], correct: 0, keyword: "C/T", explanation_en: "C/T=0 Timer, C/T=1 Counter.", explanation_vn: "C/T=0 là Timer, C/T=1 là Counter." },
+            { text: "Baud rate formula Mode 1?", options: ["(2^SMOD/32)×Timer1 overflow", "XTAL/12", "XTAL/2", "SMOD/32×XTAL"], correct: 0, keyword: "baud rate", explanation_en: "Baud rate = (2^SMOD/32)×(Timer1 overflow).", explanation_vn: "Baud rate = (2^SMOD/32)×(tốc độ tràn Timer1)." },
+            { text: "SBUF register holds?", options: ["Serial data", "Baud rate", "Control bits", "Interrupt flags"], correct: 0, keyword: "SBUF", explanation_en: "SBUF holds data to send or received data.", explanation_vn: "SBUF chứa dữ liệu phát/nhận." },
+            { text: "Timer 0 interrupt vector?", options: ["000BH", "0003H", "0013H", "0023H"], correct: 0, keyword: "000BH", explanation_en: "Timer 0 vector = 000BH.", explanation_vn: "Vector Timer 0 = 000BH." },
+            { text: "INT0 vector address?", options: ["0003H", "000BH", "0013H", "0023H"], correct: 0, keyword: "0003H", explanation_en: "External interrupt 0 vector = 0003H.", explanation_vn: "Vector ngắt ngoài 0 = 0003H." },
+            { text: "Serial interrupt vector?", options: ["0023H", "001BH", "0013H", "000BH"], correct: 0, keyword: "0023H", explanation_en: "Serial port vector = 0023H.", explanation_vn: "Vector serial = 0023H." },
+            { text: "C operator to toggle a bit?", options: ["^ (XOR)", "& (AND)", "| (OR)", "~ (NOT)"], correct: 0, keyword: "XOR toggle", explanation_en: "XOR with 1 toggles a bit: P1 ^= 0x01;", explanation_vn: "XOR với 1 để đảo bit: P1 ^= 0x01;" },
+            { text: "sfr keyword in C does?", options: ["Define SFR address", "Define bit", "Define function", "Define array"], correct: 0, keyword: "sfr", explanation_en: "'sfr' defines a special function register address.", explanation_vn: "'sfr' định nghĩa địa chỉ thanh ghi chức năng đặc biệt." },
+            { text: "Toggle only P2.4 in C?", options: ["P2 ^= 0x10;", "P2 = 0x10;", "P2 |= 0x10;", "P2 &= ~0x10;"], correct: 0, keyword: "XOR 0x10", explanation_en: "P2 ^= 0x10 toggles only bit 4.", explanation_vn: "P2 ^= 0x10 đảo chỉ bit 4." },
+            { text: "TMOD for Timer 0 Mode 1?", options: ["0x01", "0x02", "0x10", "0x20"], correct: 0, keyword: "TMOD 0x01", explanation_en: "Lower 4 bits: Mode 1 = 0001b = 0x01.", explanation_vn: "4 bit thấp: Mode 1 = 0001b = 0x01." },
+            { text: "TMOD for Timer 1 Mode 2?", options: ["0x20", "0x02", "0x10", "0x01"], correct: 0, keyword: "TMOD 0x20", explanation_en: "Upper 4 bits: Mode 2 = 0010b << 4 = 0x20.", explanation_vn: "4 bit cao: Mode 2 = 0010b << 4 = 0x20." },
+            { text: "TR0 bit does?", options: ["Start Timer 0", "Start Timer 1", "Stop Timer 0", "Overflow flag"], correct: 0, keyword: "TR0", explanation_en: "TR0 = 1 starts Timer 0.", explanation_vn: "TR0 = 1 khởi động Timer 0." },
+            { text: "TF0 indicates?", options: ["Timer 0 overflow", "Timer 0 start", "Timer 0 stop", "Timer 0 reload"], correct: 0, keyword: "TF0", explanation_en: "TF0 set when Timer 0 overflows.", explanation_vn: "TF0 được set khi Timer 0 tràn." },
+            { text: "IE register does?", options: ["Enable/disable interrupts", "Set priority", "Clear flags", "Store vector"], correct: 0, keyword: "IE", explanation_en: "IE enables/disables interrupts.", explanation_vn: "IE cho phép/vô hiệu ngắt." },
+            { text: "EA bit in IE?", options: ["Global interrupt enable", "Enable Timer 0", "Enable INT0", "Enable serial"], correct: 0, keyword: "EA", explanation_en: "EA must be set to enable any interrupt.", explanation_vn: "EA phải được set để cho phép bất kỳ ngắt nào." },
+            { text: "IP register sets?", options: ["Interrupt priority", "Interrupt enable", "Interrupt clear", "Interrupt flags"], correct: 0, keyword: "IP priority", explanation_en: "IP sets high priority for interrupts.", explanation_vn: "IP đặt ưu tiên cao cho ngắt." },
+            { text: "Keil C interrupt number for Timer 0?", options: ["1", "0", "2", "3"], correct: 0, keyword: "interrupt 1", explanation_en: "Timer 0 uses interrupt number 1 in Keil.", explanation_vn: "Timer 0 dùng số hiệu ngắt 1 trong Keil." },
+            { text: "Keil C interrupt number for INT0?", options: ["0", "1", "2", "3"], correct: 0, keyword: "interrupt 0", explanation_en: "INT0 uses interrupt number 0.", explanation_vn: "INT0 dùng số hiệu ngắt 0." },
+            { text: "Baud rate for TH1=0xFD, SMOD=0, 11.0592MHz?", options: ["9600", "4800", "19200", "2400"], correct: 0, keyword: "9600 baud", calculation: true, explanation_en: "TH1=0xFD gives 9600 baud at 11.0592MHz.", explanation_vn: "TH1=0xFD cho 9600 baud ở 11.0592MHz." }
         ]
     };
 
-    // User answers storage
-    let userAnswers = { 0: {}, 1: {}, 2: {} };
     let currentChapter = 0;
 
     function renderQuiz(chapterIdx) {
         const questions = questionsData[chapterIdx];
         if (!questions) return;
-        let html = `<div class="chapter-title">📖 ${chapterIdx === 0 ? 'Chapter 1: Introduction to Microcontrollers (30 questions)' : (chapterIdx === 1 ? 'Chapter 2: 8051 Architecture (30 questions)' : 'Chapter 3: C Programming, Timer, Serial, Interrupt (30 questions)')}</div>`;
-        html += `<div class="progress-info">📊 Total: ${questions.length} questions | 🔑 Each question has keyword | 🌐 Bilingual explanation</div>`;
+        let html = `<div class="chapter-title">${chapterIdx === 0 ? '📖 Chương 1: Giới thiệu Vi điều khiển' : (chapterIdx === 1 ? '⚙️ Chương 2: Kiến trúc 8051' : '⌨️ Chương 3: C/Timer/Serial/Interrupt')}</div>`;
+        html += `<div class="progress-info">📊 ${questions.length} câu | 🔑 Keyword | 🌐 Song ngữ | ✅ Đáp án hiện ngay khi chọn</div>`;
         
         questions.forEach((q, idx) => {
-            const saved = userAnswers[chapterIdx]?.[idx] !== undefined ? userAnswers[chapterIdx][idx] : null;
-            html += `<div class="question-item" data-qidx="${idx}">
+            html += `<div class="question-item" id="q-${chapterIdx}-${idx}">
                         <div class="question-text">
                             ${idx+1}. ${q.text}
                             <span class="keyword-badge">🔑 ${q.keyword}</span>
                         </div>
-                        <div class="options">`;
+                        <div class="options" id="options-${chapterIdx}-${idx}">`;
             q.options.forEach((opt, optIdx) => {
-                const checkedAttr = (saved === optIdx) ? 'checked' : '';
-                const letter = String.fromCharCode(97 + optIdx);
-                html += `<label><input type="radio" name="q${idx}" value="${optIdx}" ${checkedAttr}> ${letter}. ${opt}</label>`;
+                const letter = String.fromCharCode(65 + optIdx);
+                html += `<label><input type="radio" name="q${chapterIdx}_${idx}" value="${optIdx}" data-qidx="${idx}"> ${letter}. ${opt}</label>`;
             });
-            html += `</div><div class="feedback-area" id="fb-${chapterIdx}-${idx}"></div></div>`;
+            html += `</div><div class="feedback" id="fb-${chapterIdx}-${idx}"></div></div>`;
         });
         document.getElementById("dynamicQuiz").innerHTML = html;
         
-        // Attach change events
+        // Gắn sự kiện cho từng radio
         for (let i = 0; i < questions.length; i++) {
-            const radios = document.querySelectorAll(`input[name="q${i}"]`);
+            const radios = document.querySelectorAll(`input[name="q${chapterIdx}_${i}"]`);
             radios.forEach(radio => {
                 radio.addEventListener('change', (e) => {
-                    userAnswers[currentChapter][i] = parseInt(e.target.value);
+                    const selectedVal = parseInt(e.target.value);
+                    const isCorrect = (selectedVal === questions[i].correct);
+                    const fbDiv = document.getElementById(`fb-${chapterIdx}-${i}`);
+                    const correctLetter = String.fromCharCode(65 + questions[i].correct);
+                    if (isCorrect) {
+                        fbDiv.innerHTML = `<div class="feedback correct">✅ Đúng!<br><span class="english">📖 EN: ${questions[i].explanation_en}</span><br><span class="vietnamese">🇻🇳 VN: ${questions[i].explanation_vn}</span>${questions[i].fx580 ? `<br>🧮 FX-580: ${questions[i].fx580}` : ''}</div>`;
+                    } else {
+                        fbDiv.innerHTML = `<div class="feedback wrong">❌ Sai. Đáp án đúng: ${correctLetter}. ${questions[i].options[questions[i].correct]}<br><span class="english">📖 EN: ${questions[i].explanation_en}</span><br><span class="vietnamese">🇻🇳 VN: ${questions[i].explanation_vn}</span>${questions[i].fx580 ? `<br>🧮 FX-580: ${questions[i].fx580}` : ''}</div>`;
+                    }
                 });
             });
         }
-        clearFeedbackDisplay(chapterIdx);
     }
-    
-    function clearFeedbackDisplay(chapterIdx) {
-        const questions = questionsData[chapterIdx];
-        if(!questions) return;
-        for(let i = 0; i < questions.length; i++) {
-            const fbDiv = document.getElementById(`fb-${chapterIdx}-${i}`);
-            if(fbDiv) fbDiv.innerHTML = '';
-        }
-    }
-    
-    function submitChapter(chapterIdx) {
-        const questions = questionsData[chapterIdx];
-        if (!questions) return;
-        let correctCount = 0;
-        for (let i = 0; i < questions.length; i++) {
-            const userChoice = userAnswers[chapterIdx]?.[i];
-            const isCorrect = (userChoice === questions[i].correct);
-            if (isCorrect && userChoice !== undefined) correctCount++;
-            const fbDiv = document.getElementById(`fb-${chapterIdx}-${i}`);
-            if (fbDiv) {
-                const correctLetter = String.fromCharCode(97 + questions[i].correct);
-                if (userChoice === undefined) {
-                    fbDiv.innerHTML = `<div class="feedback wrong-feedback">❌ Not answered. Correct: ${correctLetter}. ${questions[i].options[questions[i].correct]}<br><span class="english">📖 EN: ${questions[i].explanation_en}</span><br><span class="vietnamese">🇻🇳 VN: ${questions[i].explanation_vn}</span></div>`;
-                } else if (isCorrect) {
-                    fbDiv.innerHTML = `<div class="feedback correct-feedback">✅ Correct! ${questions[i].keyword}<br><span class="english">📖 EN: ${questions[i].explanation_en}</span><br><span class="vietnamese">🇻🇳 VN: ${questions[i].explanation_vn}</span></div>`;
-                } else {
-                    fbDiv.innerHTML = `<div class="feedback wrong-feedback">❌ Wrong. Correct: ${correctLetter}. ${questions[i].options[questions[i].correct]}<br><span class="english">📖 EN: ${questions[i].explanation_en}</span><br><span class="vietnamese">🇻🇳 VN: ${questions[i].explanation_vn}</span></div>`;
-                }
-            }
-        }
-        const total = questions.length;
-        const existingScoreDiv = document.getElementById("scoreToast");
-        if(existingScoreDiv) existingScoreDiv.remove();
-        const scoreDiv = document.createElement("div");
-        scoreDiv.id = "scoreToast";
-        scoreDiv.style = "background: #0f3b2c; color: white; padding: 12px 20px; border-radius: 50px; text-align: center; margin-top: 20px; font-weight: bold;";
-        scoreDiv.innerText = `📊 Result: ${correctCount}/${total} (${Math.round(correctCount/total*100)}%)`;
-        document.querySelector("#dynamicQuiz").appendChild(scoreDiv);
-    }
-    
+
     function resetChapter(chapterIdx) {
-        userAnswers[chapterIdx] = {};
         renderQuiz(chapterIdx);
-        const existingScoreDiv = document.getElementById("scoreToast");
-        if(existingScoreDiv) existingScoreDiv.remove();
     }
-    
-    // Calculator
-    function initCalculator() {
-        const calcScreen = document.getElementById("calcScreen");
-        let currentInput = "0";
-        let pendingEval = false;
-        const updateScreen = () => { calcScreen.innerText = currentInput.length > 25 ? currentInput.slice(0,25)+"…" : currentInput; };
-        const handleButton = (val) => {
-            if (val === 'C') {
-                currentInput = "0";
-                pendingEval = false;
-                updateScreen();
-                return;
-            }
-            if (val === '=') {
-                try {
-                    let expr = currentInput.toLowerCase();
-                    expr = expr.replace(/([0-9A-Fa-f]+)(?![0-9A-Fa-fhx])/g, function(match) {
-                        if(/^[0-9A-Fa-f]+$/.test(match) && !match.includes('x')) return '0x' + match;
-                        return match;
-                    }).replace(/H/g,'');
-                    let result = eval(expr);
-                    if (isNaN(result) || !isFinite(result)) throw new Error();
-                    currentInput = result.toString();
-                    pendingEval = true;
-                } catch(e) {
-                    currentInput = "Error";
-                }
-                updateScreen();
-                return;
-            }
-            if (pendingEval && !isNaN(val) || val === '.') {
-                currentInput = val;
-                pendingEval = false;
-            } else {
-                if (currentInput === "0" && !isNaN(val) && val !== '.') currentInput = val;
-                else currentInput += val;
-            }
-            updateScreen();
-        };
-        const buttons = ["7","8","9","/","C","4","5","6","*","(","1","2","3","-",")","0",".","+","=","Hex"];
-        const container = document.getElementById("calcButtons");
-        container.innerHTML = "";
-        buttons.forEach(btn => {
-            const btnEl = document.createElement("button");
-            btnEl.innerText = btn;
-            if (btn === "=" || btn === "+" || btn === "-" || btn === "*" || btn === "/") btnEl.classList.add("op-btn");
-            if (btn === "C") btnEl.classList.add("clear-btn");
-            btnEl.addEventListener("click", () => {
-                if (btn === "Hex") {
-                    let num = parseFloat(currentInput);
-                    if (isNaN(num)) { currentInput = "NaN"; updateScreen(); return; }
-                    currentInput = "0x" + Math.floor(num).toString(16).toUpperCase();
-                    pendingEval = false;
-                    updateScreen();
-                } else handleButton(btn);
-            });
-            container.appendChild(btnEl);
-        });
-        window.addEventListener('keydown', (e) => {
-            const key = e.key;
-            if ((key >= '0' && key <= '9') || key === '+' || key === '-' || key === '*' || key === '/' || key === '.' || key === '(' || key === ')') {
-                handleButton(key);
-                e.preventDefault();
-            } else if (key === 'Enter') handleButton('=');
-            else if (key === 'Escape') handleButton('C');
-        });
-    }
-    
+
     function setActiveChapter(chapIdx) {
         currentChapter = chapIdx;
         renderQuiz(chapIdx);
-        document.querySelectorAll(".chapter-btn").forEach((btn, idx) => {
+        document.querySelectorAll(".chapter-btn").forEach(btn => {
             if (parseInt(btn.getAttribute("data-chapter")) === chapIdx) btn.classList.add("active");
             else btn.classList.remove("active");
         });
     }
-    
-    function bindMenuEvents() {
-        document.querySelectorAll(".chapter-btn").forEach(btn => {
-            btn.addEventListener("click", () => {
-                const chap = parseInt(btn.getAttribute("data-chapter"));
-                if (!isNaN(chap)) setActiveChapter(chap);
-            });
+
+    document.querySelectorAll(".chapter-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const chap = parseInt(btn.getAttribute("data-chapter"));
+            setActiveChapter(chap);
         });
-        document.getElementById("submitBtn").addEventListener("click", () => submitChapter(currentChapter));
-        document.getElementById("resetChapBtn").addEventListener("click", () => resetChapter(currentChapter));
-    }
+    });
+    document.getElementById("resetChapBtn").addEventListener("click", () => resetChapter(currentChapter));
     
-    initCalculator();
-    bindMenuEvents();
     setActiveChapter(0);
 </script>
 </body>
