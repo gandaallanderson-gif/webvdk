@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8051 Trắc nghiệm - Hiện đáp án ngay + Hướng dẫn FX-580</title>
+    <title>8051 Trắc nghiệm - Hiện đáp án ngay + Hướng dẫn FX-580 chi tiết</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #eef2f7;
@@ -16,7 +14,7 @@
             color: #1e2a3e;
         }
         .main-container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
@@ -24,11 +22,11 @@
         }
         .menu-sidebar {
             flex: 1;
-            min-width: 240px;
+            min-width: 320px;
             background: white;
             border-radius: 28px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            padding: 20px 12px;
+            padding: 20px 16px;
             height: fit-content;
             position: sticky;
             top: 20px;
@@ -62,8 +60,8 @@
             border-left: 4px solid #ffb74d;
         }
         .quiz-area {
-            flex: 3;
-            min-width: 300px;
+            flex: 2.5;
+            min-width: 350px;
         }
         .quiz-card {
             background: white;
@@ -85,7 +83,6 @@
             padding: 16px 20px;
             border-radius: 24px;
             border: 1px solid #e2edf2;
-            transition: 0.2s;
         }
         .question-text {
             font-weight: 700;
@@ -114,51 +111,58 @@
             border-radius: 30px;
             transition: 0.1s;
         }
-        .options label:hover {
-            background: #e6f0fa;
-        }
+        .options label:hover { background: #e6f0fa; }
         .feedback {
             margin-top: 12px;
             padding: 10px 16px;
             border-radius: 20px;
             font-size: 0.85rem;
         }
-        .feedback.correct {
-            background: #d1fae5;
-            border-left: 4px solid #10b981;
-        }
-        .feedback.wrong {
-            background: #fee2e2;
-            border-left: 4px solid #ef4444;
-        }
+        .feedback.correct { background: #d1fae5; border-left: 4px solid #10b981; }
+        .feedback.wrong { background: #fee2e2; border-left: 4px solid #ef4444; }
         .english { color: #1e40af; font-weight: 500; }
         .vietnamese { color: #b91c1c; }
         .calc-guide {
             background: #1e2f3f;
             border-radius: 28px;
-            padding: 18px;
+            padding: 16px;
             margin-top: 20px;
             color: #f1f5f9;
         }
         .calc-guide h4 {
             margin: 0 0 12px 0;
             color: #ffb74d;
+            font-size: 1.1rem;
         }
-        .calc-guide table {
-            width: 100%;
-            font-size: 0.85rem;
-            border-collapse: collapse;
+        .calc-section {
+            background: #0f1a24;
+            border-radius: 20px;
+            padding: 12px;
+            margin-bottom: 16px;
         }
-        .calc-guide td {
-            padding: 8px 6px;
-            border-bottom: 1px solid #3a5a7a;
-            vertical-align: top;
+        .calc-section h5 {
+            margin: 0 0 8px 0;
+            color: #ffb74d;
+            font-size: 0.95rem;
         }
-        .calc-guide .step {
+        .step-list {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+        .step-list li {
+            margin: 5px 0;
+        }
+        kbd {
+            background: #2d4a6e;
+            border-radius: 6px;
+            padding: 2px 8px;
+            font-family: monospace;
             font-weight: bold;
             color: #ffb74d;
         }
-        button.reset-chap {
+        .btn-reset {
             background: #64748b;
             border: none;
             padding: 8px 20px;
@@ -177,6 +181,10 @@
             font-size: 0.85rem;
             display: inline-block;
         }
+        @media (max-width: 900px) {
+            .main-container { flex-direction: column; }
+            .menu-sidebar { position: static; }
+        }
     </style>
 </head>
 <body>
@@ -185,32 +193,97 @@
         <h3>📘 8051 TRẮC NGHIỆM</h3>
         <button class="chapter-btn active" data-chapter="0">📖 Chương 1: Giới thiệu (25 câu)</button>
         <button class="chapter-btn" data-chapter="1">⚙️ Chương 2: Kiến trúc 8051 (25 câu)</button>
-        <button class="chapter-btn" data-chapter="2">⌨️ Chương 3: C/Timer/Serial/Int (25 câu)</button>
+        <button class="chapter-btn" data-chapter="2">⌨️ Chương 3: C/Timer/Serial (25 câu)</button>
         <hr>
-        <div class="calc-guide" style="margin-top: 10px;">
+
+        <!-- HƯỚNG DẪN FX-580VN X CHI TIẾT TỪNG BƯỚC -->
+        <div class="calc-guide">
             <h4>🧮 HƯỚNG DẪN FX-580VN X</h4>
-            <table>
-                <tr><td class="step">Cộng HEX</td><td>7A + 3F = ?<br>🔹 Bấm: <kbd>7</kbd><kbd>A</kbd> → <kbd>+</kbd> → <kbd>3</kbd><kbd>F</kbd> → <kbd>=</kbd> → <kbd>▶</kbd> (đổi sang HEX)</td></tr>
-                <tr><td class="step">Đổi DEC→BIN</td><td>227 → binary<br>🔹 Bấm: <kbd>227</kbd> → <kbd>=</kbd> → <kbd>▶</kbd> chọn <kbd>Bin</kbd></td></tr>
-                <tr><td class="step">Đổi BIN→DEC</td><td>11100011 → decimal<br>🔹 Bấm: <kbd>BIN</kbd> → nhập số → <kbd>=</kbd> → <kbd>▶</kbd> chọn <kbd>Dec</kbd></td></tr>
-                <tr><td class="step">Bù 2 (8-bit)</td><td>Tìm bù 2 của 7<br>🔹 7 → <kbd>▶</kbd> chọn <kbd>Bin</kbd> → ghi 00000111 → đảo bit: 11111000 → +1 = 11111001</td></tr>
-                <tr><td class="step">Tính timer (12MHz)</td><td>Delay 50ms: 65536-50000=15536<br>🔹 Bấm: <kbd>65536</kbd> <kbd>-</kbd> <kbd>50000</kbd> <kbd>=</kbd> → <kbd>▶</kbd> chọn <kbd>Hex</kbd> → 3CB0</td></tr>
-                <tr><td class="step">Tính timer (11.0592MHz)</td><td>1 chu kỳ = 12/11.0592 = 1.085µs<br>🔹 Bấm: <kbd>12</kbd> <kbd>÷</kbd> <kbd>11.0592</kbd> <kbd>=</kbd> → 1.085µs</td></tr>
-            </table>
-            <p style="font-size:12px; margin-top:12px;">💡 Mẹo: Nhấn <kbd>▶</kbd> (đổi đơn vị) để chuyển Dec↔Hex↔Bin</p>
+            
+            <div class="calc-section">
+                <h5>📌 1. Cộng số HEX (VD: 7A + 3F)</h5>
+                <ul class="step-list">
+                    <li><kbd>MODE</kbd> → chọn <kbd>4</kbd> (BASE-N) → màn hình hiện <kbd>Dec</kbd></li>
+                    <li><kbd>▶️</kbd> (hoặc <kbd>SHIFT</kbd> + <kbd>▶️</kbd>) → chọn <kbd>Hex</kbd> → màn hình hiện <kbd>Hex</kbd></li>
+                    <li>Nhập <kbd>7</kbd><kbd>A</kbd> → <kbd>+</kbd> → <kbd>3</kbd><kbd>F</kbd> → <kbd>=</kbd></li>
+                    <li>Kết quả: <kbd>B9</kbd> → Đáp án <strong>B9H</strong></li>
+                </ul>
+            </div>
+
+            <div class="calc-section">
+                <h5>📌 2. Đổi DEC → BIN (VD: 227 → binary)</h5>
+                <ul class="step-list">
+                    <li><kbd>MODE</kbd> → <kbd>4</kbd> (BASE-N) → màn hình hiện <kbd>Dec</kbd></li>
+                    <li>Nhập <kbd>2</kbd><kbd>2</kbd><kbd>7</kbd> → <kbd>=</kbd></li>
+                    <li><kbd>▶️</kbd> → chọn <kbd>Bin</kbd> → hiển thị <kbd>11100011</kbd></li>
+                    <li>Đáp án: <strong>11100011b</strong></li>
+                </ul>
+            </div>
+
+            <div class="calc-section">
+                <h5>📌 3. Đổi BIN → DEC (VD: 11100011 → decimal)</h5>
+                <ul class="step-list">
+                    <li><kbd>MODE</kbd> → <kbd>4</kbd> (BASE-N) → màn hình hiện <kbd>Dec</kbd></li>
+                    <li><kbd>▶️</kbd> → chọn <kbd>Bin</kbd> → màn hình hiện <kbd>Bin</kbd></li>
+                    <li>Nhập <kbd>1</kbd><kbd>1</kbd><kbd>1</kbd><kbd>0</kbd><kbd>0</kbd><kbd>0</kbd><kbd>1</kbd><kbd>1</kbd> → <kbd>=</kbd></li>
+                    <li><kbd>▶️</kbd> → chọn <kbd>Dec</kbd> → hiển thị <kbd>227</kbd></li>
+                </ul>
+            </div>
+
+            <div class="calc-section">
+                <h5>📌 4. Bù 2 (8-bit) của số 7</h5>
+                <ul class="step-list">
+                    <li><kbd>MODE</kbd> → <kbd>4</kbd> → chọn <kbd>Bin</kbd> (như trên)</li>
+                    <li>Nhập <kbd>7</kbd> → <kbd>=</kbd> → hiển thị <kbd>111</kbd> (viết đủ 8 bit: <kbd>00000111</kbd>)</li>
+                    <li>Đảo bit: <kbd>NOT</kbd> → hiển thị <kbd>11111000</kbd></li>
+                    <li>Cộng 1: <kbd>+</kbd> <kbd>1</kbd> <kbd>=</kbd> → <kbd>11111001</kbd></li>
+                    <li>Đáp án: <strong>11111001b</strong></li>
+                </ul>
+            </div>
+
+            <div class="calc-section">
+                <h5>📌 5. Tính Timer với thạch anh 12MHz (VD: 50ms delay)</h5>
+                <ul class="step-list">
+                    <li>Công thức: Giá trị nạp = 65536 - (delay_µs)</li>
+                    <li>50ms = 50000µs → 65536 - 50000 = 15536</li>
+                    <li><kbd>6</kbd><kbd>5</kbd><kbd>5</kbd><kbd>3</kbd><kbd>6</kbd> <kbd>-</kbd> <kbd>5</kbd><kbd>0</kbd><kbd>0</kbd><kbd>0</kbd><kbd>0</kbd> <kbd>=</kbd> → <kbd>15536</kbd></li>
+                    <li><kbd>▶️</kbd> → chọn <kbd>Hex</kbd> → <kbd>3CB0</kbd></li>
+                    <li>→ TH0 = <kbd>3C</kbd>, TL0 = <kbd>B0</kbd></li>
+                </ul>
+            </div>
+
+            <div class="calc-section">
+                <h5>📌 6. Tính 1 chu kỳ máy (11.0592MHz)</h5>
+                <ul class="step-list">
+                    <li>Công thức: 1 chu kỳ = 12 / tần số thạch anh (MHz)</li>
+                    <li><kbd>1</kbd><kbd>2</kbd> <kbd>÷</kbd> <kbd>1</kbd><kbd>1</kbd><kbd>.</kbd><kbd>0</kbd><kbd>5</kbd><kbd>9</kbd><kbd>2</kbd> <kbd>=</kbd></li>
+                    <li>Kết quả: <kbd>1.085069...</kbd> ≈ <strong>1.085µs</strong></li>
+                </ul>
+            </div>
+
+            <div class="calc-section">
+                <h5>📌 7. Đổi DEC ↔ HEX ↔ BIN nhanh</h5>
+                <ul class="step-list">
+                    <li>Sau khi có kết quả, nhấn <kbd>▶️</kbd> (hoặc <kbd>SHIFT</kbd> + <kbd>▶️</kbd>)</li>
+                    <li>Chọn: <kbd>Dec</kbd> / <kbd>Hex</kbd> / <kbd>Bin</kbd> / <kbd>Oct</kbd></li>
+                    <li>Máy tự động đổi sang hệ cơ số tương ứng</li>
+                </ul>
+            </div>
+
+            <p style="font-size:12px; margin-top:12px; text-align:center;">💡 <strong>Mẹo:</strong> Nhấn <kbd>▶️</kbd> (phím dưới màn hình) để chuyển đổi Dec↔Hex↔Bin</p>
         </div>
     </div>
 
     <div class="quiz-area">
         <div class="quiz-card">
             <div id="dynamicQuiz"></div>
-            <button class="reset-chap" id="resetChapBtn">🔄 Làm lại chương này</button>
+            <button class="btn-reset" id="resetChapBtn">🔄 Làm lại chương này</button>
         </div>
     </div>
 </div>
 
 <script>
-    // ======================= DỮ LIỆU CÂU HỎI (Mỗi câu có đáp án + giải thích song ngữ) =======================
+    // ======================= CÂU HỎI (có fx580 hướng dẫn riêng) =======================
     const questionsData = {
         0: [ // Chương 1: 25 câu
             { text: "What is the size of internal ROM in the standard 8051 microcontroller?", options: ["1 KB", "2 KB", "4 KB", "8 KB"], correct: 2, keyword: "4KB ROM", explanation_en: "The standard 8051 has 4KB of on-chip ROM.", explanation_vn: "8051 chuẩn có 4KB ROM nội." },
@@ -226,11 +299,11 @@
             { text: "Difference between Microcontroller and Microprocessor?", options: ["MCU has CPU,RAM,ROM,I/O on chip", "MCU for desktops only", "MCU has no timer", "MCU expensive"], correct: 0, keyword: "MCU integrated", explanation_en: "Microcontroller integrates everything on one chip.", explanation_vn: "Vi điều khiển tích hợp mọi thứ trên một chip." },
             { text: "What architecture does AVR use?", options: ["CISC", "RISC", "Von Neumann", "Harvard"], correct: 1, keyword: "AVR RISC", explanation_en: "AVR uses RISC architecture.", explanation_vn: "AVR dùng kiến trúc RISC." },
             { text: "WREG in PIC18 is?", options: ["Program memory", "8-bit working register", "Stack pointer", "Address register"], correct: 1, keyword: "WREG", explanation_en: "WREG is working register (accumulator) in PIC.", explanation_vn: "WREG là thanh ghi làm việc trong PIC." },
-            { text: "Calculate: 7AH + 3FH = ? (hex)", options: ["B9H", "C9H", "A9H", "B8H"], correct: 0, keyword: "hex addition", calculation: true, explanation_en: "7A+3F = 122+63=185 = B9H", explanation_vn: "7A+3F = 122+63=185 = B9H", fx580: "Bấm: 7 A + 3 F = → ▶ → chọn HEX" },
-            { text: "Convert 227 to binary:", options: ["11100011", "11100010", "11000011", "11110011"], correct: 0, keyword: "binary", calculation: true, explanation_en: "227 = 128+64+32+2+1 = 11100011b", explanation_vn: "227 = 128+64+32+2+1 = 11100011b", fx580: "Bấm: 227 = → ▶ → chọn BIN" },
+            { text: "Calculate: 7AH + 3FH = ? (hex)", options: ["B9H", "C9H", "A9H", "B8H"], correct: 0, keyword: "hex addition", calculation: true, explanation_en: "7A+3F = 122+63=185 = B9H", explanation_vn: "7A+3F = 122+63=185 = B9H", fx580: "B1: MODE→4 (BASE-N) → ▶️ chọn Hex → 7A + 3F = → B9" },
+            { text: "Convert 227 to binary:", options: ["11100011", "11100010", "11000011", "11110011"], correct: 0, keyword: "binary", calculation: true, explanation_en: "227 = 128+64+32+2+1 = 11100011b", explanation_vn: "227 = 128+64+32+2+1 = 11100011b", fx580: "B1: MODE→4 → nhập 227 = → ▶️ chọn Bin → 11100011" },
             { text: "What does ARM stand for?", options: ["Advanced RISC Machine", "Advanced Real-time Module", "Automated Register Manager", "Arithmetic RISC Micro"], correct: 0, keyword: "ARM", explanation_en: "Advanced RISC Machine.", explanation_vn: "Advanced RISC Machine." },
             { text: "Convert 0.625 to binary:", options: ["0.101", "0.110", "0.011", "0.111"], correct: 0, keyword: "fraction binary", calculation: true, explanation_en: "0.625×2=1.25(1), 0.25×2=0.5(0), 0.5×2=1.0(1) → 0.101b", explanation_vn: "0.625×2=1.25(1), 0.25×2=0.5(0), 0.5×2=1.0(1) → 0.101b" },
-            { text: "2's complement of 7 (8-bit)?", options: ["11111001", "00000111", "11111000", "10000111"], correct: 0, keyword: "2's complement", calculation: true, explanation_en: "7=00000111 → invert 11111000 → +1 = 11111001", explanation_vn: "7=00000111 → đảo 11111000 → +1 = 11111001", fx580: "Bấm: 7 → ▶ chọn BIN (00000111) → đảo bit thủ công" },
+            { text: "2's complement of 7 (8-bit)?", options: ["11111001", "00000111", "11111000", "10000111"], correct: 0, keyword: "2's complement", calculation: true, explanation_en: "7=00000111 → invert 11111000 → +1 = 11111001", explanation_vn: "7=00000111 → đảo 11111000 → +1 = 11111001", fx580: "B1: MODE→4 chọn Bin → 7 = → NOT → +1 = → 11111001" },
             { text: "Which company produces PIC?", options: ["Intel", "Microchip", "Atmel", "ARM"], correct: 1, keyword: "Microchip", explanation_en: "Microchip Technology produces PIC.", explanation_vn: "Microchip sản xuất PIC." },
             { text: "Harvard architecture has?", options: ["Separate buses for program and data", "Same bus", "No cache", "Only CISC"], correct: 0, keyword: "Harvard", explanation_en: "Separate buses for instructions and data.", explanation_vn: "Bus riêng cho lệnh và dữ liệu." },
             { text: "8-bit PIC family?", options: ["PIC18", "ARM Cortex-M", "AVR Mega", "ESP32"], correct: 0, keyword: "PIC18", explanation_en: "PIC18 is 8-bit Microchip family.", explanation_vn: "PIC18 là dòng 8-bit của Microchip." },
@@ -239,15 +312,15 @@
             { text: "Which pin selects external memory?", options: ["EA", "PSEN", "ALE", "RST"], correct: 0, keyword: "EA pin", explanation_en: "EA=0 uses external memory.", explanation_vn: "EA=0 dùng bộ nhớ ngoài." },
             { text: "ALE frequency relative to XTAL?", options: ["1/2", "1/4", "1/6", "Same"], correct: 2, keyword: "ALE 1/6", explanation_en: "ALE = 1/6 of crystal frequency.", explanation_vn: "ALE = 1/6 tần số thạch anh." }
         ],
-        1: [ // Chương 2 - 25 câu kiến trúc
-            { text: "Stack Pointer (SP) value after reset?", options: ["00H", "07H", "FFH", "60H"], correct: 1, keyword: "SP=07H", explanation_en: "SP initializes to 07H after reset.", explanation_vn: "SP = 07H sau reset." },
-            { text: "RS1,RS0 bits in PSW are for?", options: ["Select register bank", "Select interrupt priority", "Control timer", "Control serial"], correct: 0, keyword: "bank select", explanation_en: "RS1,RS0 select one of 4 register banks.", explanation_vn: "RS1,RS0 chọn 1 trong 4 bank thanh ghi." },
+        1: [ // Chương 2: 25 câu - viết tắt để gọn, nhưng đủ số lượng
+            { text: "Stack Pointer (SP) value after reset?", options: ["00H", "07H", "FFH", "60H"], correct: 1, keyword: "SP=07H", explanation_en: "SP=07H after reset.", explanation_vn: "SP=07H sau reset." },
+            { text: "RS1,RS0 bits in PSW are for?", options: ["Select register bank", "Select interrupt priority", "Control timer", "Control serial"], correct: 0, keyword: "bank select", explanation_en: "Select one of 4 register banks.", explanation_vn: "Chọn 1 trong 4 bank thanh ghi." },
             { text: "When is OV flag set?", options: ["Signed overflow beyond -128..+127", "Carry out bit7", "Parity odd", "Timer overflow"], correct: 0, keyword: "OV overflow", explanation_en: "OV set when signed result exceeds +127 or below -128.", explanation_vn: "OV set khi kết quả có dấu vượt quá +127 hoặc dưới -128." },
-            { text: "Port 2 dual function?", options: ["I/O and high address bus (A8-A15)", "I/O and data bus", "Only I/O", "Interrupt pins"], correct: 0, keyword: "P2 high address", explanation_en: "Port 2 = I/O or high byte address bus.", explanation_vn: "Cổng 2 = I/O hoặc bus địa chỉ cao." },
+            { text: "Port 2 dual function?", options: ["I/O and high address bus (A8-A15)", "I/O and data bus", "Only I/O", "Interrupt pins"], correct: 0, keyword: "P2 high address", explanation_en: "Port 2 = I/O or high address bus.", explanation_vn: "Cổng 2 = I/O hoặc bus địa chỉ cao." },
             { text: "External interrupts on which pins?", options: ["P3.2 (INT0) and P3.3 (INT1)", "P1.0,P1.1", "P2.0,P2.1", "P0.0,P0.1"], correct: 0, keyword: "INT0 INT1", explanation_en: "INT0 on P3.2, INT1 on P3.3.", explanation_vn: "INT0 ở P3.2, INT1 ở P3.3." },
             { text: "B register used for?", options: ["Multiply/Divide with A", "Stack pointer", "Program counter", "Data pointer"], correct: 0, keyword: "MUL DIV", explanation_en: "MUL AB and DIV AB use B register.", explanation_vn: "MUL AB và DIV AB dùng thanh ghi B." },
             { text: "Parity bit P in PSW based on?", options: ["Number of 1s in A", "Number of 0s in A", "Carry", "Overflow"], correct: 0, keyword: "parity", explanation_en: "P makes total 1s in A+P even.", explanation_vn: "P để tổng số bit 1 trong A+P là chẵn." },
-            { text: "Addressing mode of 'MOV A, @R1'?", options: ["Indirect", "Direct", "Immediate", "Register"], correct: 0, keyword: "@Ri indirect", explanation_en: "@R1 is indirect addressing using R1 as pointer.", explanation_vn: "@R1 là định địa chỉ gián tiếp." },
+            { text: "Addressing mode of 'MOV A, @R1'?", options: ["Indirect", "Direct", "Immediate", "Register"], correct: 0, keyword: "@Ri indirect", explanation_en: "@R1 is indirect addressing.", explanation_vn: "@R1 là định địa chỉ gián tiếp." },
             { text: "Program Counter width?", options: ["8-bit", "16-bit", "12-bit", "14-bit"], correct: 1, keyword: "PC 16-bit", explanation_en: "16-bit PC → 64KB addressing.", explanation_vn: "PC 16-bit → địa chỉ 64KB." },
             { text: "ALE pin function?", options: ["Latch address from P0", "Enable external ROM", "Reset", "Clock output"], correct: 0, keyword: "ALE latch", explanation_en: "ALE latches low address byte from P0.", explanation_vn: "ALE chốt địa chỉ thấp từ P0." },
             { text: "Port values after reset?", options: ["00H", "FFH", "07H", "80H"], correct: 1, keyword: "ports FFH", explanation_en: "All ports = FFH after reset.", explanation_vn: "Tất cả cổng = FFH sau reset." },
@@ -266,20 +339,20 @@
             { text: "DJNZ instruction?", options: ["Decrement and jump if not zero", "Decrement and jump if zero", "Decrement and jump", "Jump if not zero"], correct: 0, keyword: "DJNZ", explanation_en: "DJNZ decrements and jumps if result ≠ 0.", explanation_vn: "DJNZ giảm và nhảy nếu kết quả ≠ 0." },
             { text: "Mode 0 timer max count?", options: ["8191", "65535", "255", "4095"], correct: 0, keyword: "mode 0 13-bit", explanation_en: "13-bit timer counts 0 to 8191 (1FFFh).", explanation_vn: "Timer 13-bit đếm 0 đến 8191 (1FFFh)." }
         ],
-        2: [ // Chương 3 - 25 câu C/Timer/Serial/Interrupt
+        2: [ // Chương 3: 25 câu
             { text: "C data type for single bit access?", options: ["sbit", "bit", "unsigned char", "sfr"], correct: 0, keyword: "sbit", explanation_en: "'sbit' accesses individual bits of SFRs/ports.", explanation_vn: "'sbit' truy cập từng bit của SFR/cổng." },
             { text: "Machine cycle time @12MHz?", options: ["1 µs", "0.5 µs", "2 µs", "1.085 µs"], correct: 0, keyword: "12MHz 1µs", explanation_en: "1 cycle = 12/12MHz = 1µs.", explanation_vn: "1 chu kỳ = 12/12MHz = 1µs." },
-            { text: "Machine cycle time @11.0592MHz?", options: ["1 µs", "0.9216 µs", "1.085 µs", "2 µs"], correct: 2, keyword: "1.085µs", explanation_en: "12/11.0592 ≈ 1.085µs.", explanation_vn: "12/11.0592 ≈ 1.085µs.", fx580: "Bấm: 12 ÷ 11.0592 = → 1.085µs" },
+            { text: "Machine cycle time @11.0592MHz?", options: ["1 µs", "0.9216 µs", "1.085 µs", "2 µs"], correct: 2, keyword: "1.085µs", explanation_en: "12/11.0592 ≈ 1.085µs.", explanation_vn: "12/11.0592 ≈ 1.085µs.", fx580: "B1: 12 ÷ 11.0592 = → 1.085µs" },
             { text: "Timer mode with auto-reload?", options: ["Mode 0", "Mode 1", "Mode 2", "Mode 3"], correct: 2, keyword: "mode 2 auto-reload", explanation_en: "Mode 2 = 8-bit auto-reload timer.", explanation_vn: "Mode 2 = timer 8-bit tự động nạp lại." },
             { text: "Max count in Mode 1 (16-bit)?", options: ["0xFF", "0xFFFF", "0x1FFF", "0x7FFF"], correct: 1, keyword: "FFFFh", explanation_en: "16-bit timer counts 0 to 65535.", explanation_vn: "Timer 16-bit đếm 0 đến 65535." },
-            { text: "50ms delay @12MHz: TH0,TL0 = ? (65536-50000=15536=0x3CB0)", options: ["TH0=0x3C, TL0=0xB0", "TH0=0xB0,TL0=0x3C", "TH0=0x4E,TL0=0x20", "TH0=0x20,TL0=0x4E"], correct: 0, keyword: "15536 3CB0", calculation: true, explanation_en: "65536-50000=15536=0x3CB0 → TH=0x3C, TL=0xB0", explanation_vn: "65536-50000=15536=0x3CB0 → TH=0x3C, TL=0xB0", fx580: "Bấm: 65536 - 50000 = → ▶ chọn HEX → 3CB0" },
+            { text: "50ms delay @12MHz: TH0,TL0 = ? (65536-50000=15536=0x3CB0)", options: ["TH0=0x3C, TL0=0xB0", "TH0=0xB0,TL0=0x3C", "TH0=0x4E,TL0=0x20", "TH0=0x20,TL0=0x4E"], correct: 0, keyword: "15536 3CB0", calculation: true, explanation_en: "65536-50000=15536=0x3CB0 → TH=0x3C, TL=0xB0", explanation_vn: "65536-50000=15536=0x3CB0 → TH=0x3C, TL=0xB0", fx580: "B1: 65536 - 50000 = → ▶️ chọn Hex → 3CB0" },
             { text: "C/T bit in TMOD selects?", options: ["Timer/Counter", "Gate", "Mode", "Start"], correct: 0, keyword: "C/T", explanation_en: "C/T=0 Timer, C/T=1 Counter.", explanation_vn: "C/T=0 là Timer, C/T=1 là Counter." },
             { text: "Baud rate formula Mode 1?", options: ["(2^SMOD/32)×Timer1 overflow", "XTAL/12", "XTAL/2", "SMOD/32×XTAL"], correct: 0, keyword: "baud rate", explanation_en: "Baud rate = (2^SMOD/32)×(Timer1 overflow).", explanation_vn: "Baud rate = (2^SMOD/32)×(tốc độ tràn Timer1)." },
             { text: "SBUF register holds?", options: ["Serial data", "Baud rate", "Control bits", "Interrupt flags"], correct: 0, keyword: "SBUF", explanation_en: "SBUF holds data to send or received data.", explanation_vn: "SBUF chứa dữ liệu phát/nhận." },
             { text: "Timer 0 interrupt vector?", options: ["000BH", "0003H", "0013H", "0023H"], correct: 0, keyword: "000BH", explanation_en: "Timer 0 vector = 000BH.", explanation_vn: "Vector Timer 0 = 000BH." },
             { text: "INT0 vector address?", options: ["0003H", "000BH", "0013H", "0023H"], correct: 0, keyword: "0003H", explanation_en: "External interrupt 0 vector = 0003H.", explanation_vn: "Vector ngắt ngoài 0 = 0003H." },
             { text: "Serial interrupt vector?", options: ["0023H", "001BH", "0013H", "000BH"], correct: 0, keyword: "0023H", explanation_en: "Serial port vector = 0023H.", explanation_vn: "Vector serial = 0023H." },
-            { text: "C operator to toggle a bit?", options: ["^ (XOR)", "& (AND)", "| (OR)", "~ (NOT)"], correct: 0, keyword: "XOR toggle", explanation_en: "XOR with 1 toggles a bit: P1 ^= 0x01;", explanation_vn: "XOR với 1 để đảo bit: P1 ^= 0x01;" },
+            { text: "C operator to toggle a bit?", options: ["^ (XOR)", "& (AND)", "| (OR)", "~ (NOT)"], correct: 0, keyword: "XOR toggle", explanation_en: "XOR with 1 toggles a bit.", explanation_vn: "XOR với 1 để đảo bit." },
             { text: "sfr keyword in C does?", options: ["Define SFR address", "Define bit", "Define function", "Define array"], correct: 0, keyword: "sfr", explanation_en: "'sfr' defines a special function register address.", explanation_vn: "'sfr' định nghĩa địa chỉ thanh ghi chức năng đặc biệt." },
             { text: "Toggle only P2.4 in C?", options: ["P2 ^= 0x10;", "P2 = 0x10;", "P2 |= 0x10;", "P2 &= ~0x10;"], correct: 0, keyword: "XOR 0x10", explanation_en: "P2 ^= 0x10 toggles only bit 4.", explanation_vn: "P2 ^= 0x10 đảo chỉ bit 4." },
             { text: "TMOD for Timer 0 Mode 1?", options: ["0x01", "0x02", "0x10", "0x20"], correct: 0, keyword: "TMOD 0x01", explanation_en: "Lower 4 bits: Mode 1 = 0001b = 0x01.", explanation_vn: "4 bit thấp: Mode 1 = 0001b = 0x01." },
@@ -328,9 +401,9 @@
                     const fbDiv = document.getElementById(`fb-${chapterIdx}-${i}`);
                     const correctLetter = String.fromCharCode(65 + questions[i].correct);
                     if (isCorrect) {
-                        fbDiv.innerHTML = `<div class="feedback correct">✅ Đúng!<br><span class="english">📖 EN: ${questions[i].explanation_en}</span><br><span class="vietnamese">🇻🇳 VN: ${questions[i].explanation_vn}</span>${questions[i].fx580 ? `<br>🧮 FX-580: ${questions[i].fx580}` : ''}</div>`;
+                        fbDiv.innerHTML = `<div class="feedback correct">✅ Đúng!<br><span class="english">📖 EN: ${questions[i].explanation_en}</span><br><span class="vietnamese">🇻🇳 VN: ${questions[i].explanation_vn}</span>${questions[i].fx580 ? `<br>🧮 <strong>FX-580:</strong> ${questions[i].fx580}` : ''}</div>`;
                     } else {
-                        fbDiv.innerHTML = `<div class="feedback wrong">❌ Sai. Đáp án đúng: ${correctLetter}. ${questions[i].options[questions[i].correct]}<br><span class="english">📖 EN: ${questions[i].explanation_en}</span><br><span class="vietnamese">🇻🇳 VN: ${questions[i].explanation_vn}</span>${questions[i].fx580 ? `<br>🧮 FX-580: ${questions[i].fx580}` : ''}</div>`;
+                        fbDiv.innerHTML = `<div class="feedback wrong">❌ Sai. Đáp án đúng: ${correctLetter}. ${questions[i].options[questions[i].correct]}<br><span class="english">📖 EN: ${questions[i].explanation_en}</span><br><span class="vietnamese">🇻🇳 VN: ${questions[i].explanation_vn}</span>${questions[i].fx580 ? `<br>🧮 <strong>FX-580:</strong> ${questions[i].fx580}` : ''}</div>`;
                     }
                 });
             });
