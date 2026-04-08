@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8051 Trắc nghiệm - Keyword hiện khi chọn đáp án + FX-580 chi tiết</title>
+    <title>8051 Trắc nghiệm - Bao quát toàn bộ kiến thức | Timer chuyên sâu</title>
     <style>
         * { box-sizing: border-box; }
         body {
@@ -190,73 +190,37 @@
 <div class="main-container">
     <div class="menu-sidebar">
         <h3>📘 8051 TRẮC NGHIỆM</h3>
-        <button class="chapter-btn active" data-chapter="0">📖 Chương 1: Giới thiệu (25 câu)</button>
-        <button class="chapter-btn" data-chapter="1">⚙️ Chương 2: Kiến trúc 8051 (25 câu)</button>
-        <button class="chapter-btn" data-chapter="2">⌨️ Chương 3: C/Timer/Serial (25 câu)</button>
+        <button class="chapter-btn active" data-chapter="0">📖 Chương 1: Giới thiệu (55 câu)</button>
+        <button class="chapter-btn" data-chapter="1">⚙️ Chương 2: Kiến trúc 8051 (55 câu)</button>
+        <button class="chapter-btn" data-chapter="2">⏱️ Chương 3: TIMER 8051 (25 câu)</button>
         <hr>
 
-        <!-- HƯỚNG DẪN FX-580VN X CHI TIẾT -->
         <div class="calc-guide">
             <h4>🧮 HƯỚNG DẪN FX-580VN X</h4>
-            
             <div class="calc-section">
-                <h5>📌 1. Cộng số HEX (VD: 7A + 3F)</h5>
-                <ul class="step-list">
-                    <li><kbd>MODE</kbd> → <kbd>4</kbd> (BASE-N) → màn hình hiện <kbd>Dec</kbd></li>
-                    <li><kbd>▶️</kbd> (hoặc <kbd>SHIFT</kbd> + <kbd>▶️</kbd>) → chọn <kbd>Hex</kbd> → màn hình hiện <kbd>Hex</kbd></li>
-                    <li>Nhập <kbd>7</kbd><kbd>A</kbd> → <kbd>+</kbd> → <kbd>3</kbd><kbd>F</kbd> → <kbd>=</kbd></li>
-                    <li>Kết quả: <kbd>B9</kbd> → Đáp án <strong>B9H</strong></li>
-                </ul>
+                <h5>📌 Cộng HEX: 7A + 3F</h5>
+                <ul class="step-list"><li><kbd>MODE</kbd>→<kbd>4</kbd>→<kbd>▶️</kbd> chọn <kbd>Hex</kbd>→<kbd>7A+3F=</kbd>→<kbd>B9</kbd></li></ul>
             </div>
-
             <div class="calc-section">
-                <h5>📌 2. Đổi DEC → BIN (VD: 227 → binary)</h5>
-                <ul class="step-list">
-                    <li><kbd>MODE</kbd> → <kbd>4</kbd> (BASE-N) → màn hình hiện <kbd>Dec</kbd></li>
-                    <li>Nhập <kbd>2</kbd><kbd>2</kbd><kbd>7</kbd> → <kbd>=</kbd></li>
-                    <li><kbd>▶️</kbd> → chọn <kbd>Bin</kbd> → hiển thị <kbd>11100011</kbd></li>
-                </ul>
+                <h5>📌 DEC→BIN: 227 → binary</h5>
+                <ul class="step-list"><li><kbd>MODE</kbd>→<kbd>4</kbd>→<kbd>227=</kbd>→<kbd>▶️</kbd> chọn <kbd>Bin</kbd>→<kbd>11100011</kbd></li></ul>
             </div>
-
             <div class="calc-section">
-                <h5>📌 3. Đổi BIN → DEC (VD: 11100011 → decimal)</h5>
-                <ul class="step-list">
-                    <li><kbd>MODE</kbd> → <kbd>4</kbd> → <kbd>▶️</kbd> → chọn <kbd>Bin</kbd></li>
-                    <li>Nhập <kbd>1</kbd><kbd>1</kbd><kbd>1</kbd><kbd>0</kbd><kbd>0</kbd><kbd>0</kbd><kbd>1</kbd><kbd>1</kbd> → <kbd>=</kbd></li>
-                    <li><kbd>▶️</kbd> → chọn <kbd>Dec</kbd> → hiển thị <kbd>227</kbd></li>
-                </ul>
+                <h5>📌 BIN→DEC: 11100011 → decimal</h5>
+                <ul class="step-list"><li><kbd>MODE</kbd>→<kbd>4</kbd>→<kbd>▶️</kbd> chọn <kbd>Bin</kbd>→<kbd>11100011=</kbd>→<kbd>▶️</kbd> chọn <kbd>Dec</kbd>→<kbd>227</kbd></li></ul>
             </div>
-
             <div class="calc-section">
-                <h5>📌 4. Bù 2 (8-bit) của số 7</h5>
-                <ul class="step-list">
-                    <li><kbd>MODE</kbd> → <kbd>4</kbd> → chọn <kbd>Bin</kbd></li>
-                    <li>Nhập <kbd>7</kbd> → <kbd>=</kbd> → hiển thị <kbd>111</kbd> (viết đủ 8 bit: <kbd>00000111</kbd>)</li>
-                    <li><kbd>NOT</kbd> → hiển thị <kbd>11111000</kbd></li>
-                    <li><kbd>+</kbd> <kbd>1</kbd> <kbd>=</kbd> → <kbd>11111001</kbd></li>
-                </ul>
+                <h5>📌 Bù 2 của 7</h5>
+                <ul class="step-list"><li><kbd>MODE</kbd>→<kbd>4</kbd> chọn <kbd>Bin</kbd>→<kbd>7=</kbd>→<kbd>NOT</kbd>→<kbd>+1=</kbd>→<kbd>11111001</kbd></li></ul>
             </div>
-
             <div class="calc-section">
-                <h5>📌 5. Tính Timer với thạch anh 12MHz (50ms)</h5>
-                <ul class="step-list">
-                    <li>Công thức: Giá trị nạp = 65536 - (delay_µs)</li>
-                    <li>50ms = 50000µs → 65536 - 50000 = 15536</li>
-                    <li><kbd>6</kbd><kbd>5</kbd><kbd>5</kbd><kbd>3</kbd><kbd>6</kbd> <kbd>-</kbd> <kbd>5</kbd><kbd>0</kbd><kbd>0</kbd><kbd>0</kbd><kbd>0</kbd> <kbd>=</kbd> → <kbd>15536</kbd></li>
-                    <li><kbd>▶️</kbd> → chọn <kbd>Hex</kbd> → <kbd>3CB0</kbd> → TH0 = <kbd>3C</kbd>, TL0 = <kbd>B0</kbd></li>
-                </ul>
+                <h5>📌 Timer 50ms @12MHz</h5>
+                <ul class="step-list"><li><kbd>65536-50000=</kbd>→<kbd>15536</kbd>→<kbd>▶️</kbd> chọn <kbd>Hex</kbd>→<kbd>3CB0</kbd></li></ul>
             </div>
-
             <div class="calc-section">
-                <h5>📌 6. Tính 1 chu kỳ máy (11.0592MHz)</h5>
-                <ul class="step-list">
-                    <li>Công thức: 1 chu kỳ = 12 / tần số thạch anh (MHz)</li>
-                    <li><kbd>1</kbd><kbd>2</kbd> <kbd>÷</kbd> <kbd>1</kbd><kbd>1</kbd><kbd>.</kbd><kbd>0</kbd><kbd>5</kbd><kbd>9</kbd><kbd>2</kbd> <kbd>=</kbd></li>
-                    <li>Kết quả: <kbd>1.085069...</kbd> ≈ <strong>1.085µs</strong></li>
-                </ul>
+                <h5>📌 1 chu kỳ @11.0592MHz</h5>
+                <ul class="step-list"><li><kbd>12÷11.0592=</kbd>→<kbd>1.085µs</kbd></li></ul>
             </div>
-
-            <p style="font-size:12px; margin-top:12px; text-align:center;">💡 <strong>Mẹo:</strong> Nhấn <kbd>▶️</kbd> để chuyển đổi Dec↔Hex↔Bin</p>
         </div>
     </div>
 
@@ -269,89 +233,157 @@
 </div>
 
 <script>
-    // ======================= CÂU HỎI (Keyword chỉ hiện trong đáp án) =======================
+    // ======================= CHƯƠNG 1: GIỚI THIỆU VI ĐIỀU KHIỂN (55 câu) =======================
+    const chapter1 = [
+        { text: "What is the size of internal ROM in the standard 8051 microcontroller?", options: ["1 KB", "2 KB", "4 KB", "8 KB"], correct: 2, keyword: "4KB ROM", explanation_en: "Standard 8051 has 4KB on-chip ROM.", explanation_vn: "8051 chuẩn có 4KB ROM nội." },
+        { text: "How many general purpose registers (R0-R7) does 8051 have at any one time?", options: ["8", "16", "32", "64"], correct: 0, keyword: "8 registers", explanation_en: "Only one register bank active → 8 registers.", explanation_vn: "Chỉ 1 bank hoạt động → 8 thanh ghi." },
+        { text: "What is the special function of Port 0 on the 8051?", options: ["Data output only", "Data input only", "Multiplexed address/data bus", "Interrupt control"], correct: 2, keyword: "P0 multiplexed", explanation_en: "Port 0 = multiplexed low address bus (A0-A7) and data bus.", explanation_vn: "Cổng 0 = bus địa chỉ thấp và dữ liệu ghép kênh." },
+        { text: "What is the size of internal RAM in the standard 8051?", options: ["64 bytes", "128 bytes", "256 bytes", "512 bytes"], correct: 1, keyword: "128B RAM", explanation_en: "Standard 8051 has 128 bytes internal RAM.", explanation_vn: "8051 chuẩn có 128 byte RAM nội." },
+        { text: "What is the SFR address of the PSW register?", options: ["0xD0", "0xE0", "0xF0", "0xA0"], correct: 0, keyword: "PSW D0H", explanation_en: "PSW at SFR address D0H.", explanation_vn: "PSW ở địa chỉ SFR D0H." },
+        { text: "What does 'MOV A, #25H' do?", options: ["Move value 25H into A", "Move memory content at 25H", "Move address 25H", "Invalid"], correct: 0, keyword: "immediate addressing", explanation_en: "'#' = immediate addressing, loads value directly.", explanation_vn: "'#' = định địa chỉ tức thời." },
+        { text: "Which instruction rotates A left through Carry?", options: ["RLC A", "RRC A", "RL A", "RR A"], correct: 0, keyword: "RLC A", explanation_en: "RLC A rotates left through Carry flag.", explanation_vn: "RLC A xoay trái qua cờ Carry." },
+        { text: "Instruction lengths in 8051 can be?", options: ["1 byte", "2 bytes", "3 bytes", "All of above"], correct: 3, keyword: "variable length", explanation_en: "Instructions: 1, 2, or 3 bytes.", explanation_vn: "Lệnh dài 1, 2 hoặc 3 byte." },
+        { text: "Which instruction is a conditional jump?", options: ["SJMP", "LJMP", "JZ", "CALL"], correct: 2, keyword: "JZ", explanation_en: "JZ jumps if accumulator is zero.", explanation_vn: "JZ nhảy nếu A = 0." },
+        { text: "Which instruction calls a subroutine?", options: ["CALL", "RET", "JMP", "JZ"], correct: 0, keyword: "ACALL/LCALL", explanation_en: "ACALL/LCALL call subroutines.", explanation_vn: "ACALL/LCALL gọi chương trình con." },
+        { text: "Difference between Microcontroller and Microprocessor?", options: ["MCU has CPU,RAM,ROM,I/O on chip", "MCU for desktops", "MCU has no timer", "MCU expensive"], correct: 0, keyword: "MCU integrated", explanation_en: "Microcontroller integrates everything on one chip.", explanation_vn: "Vi điều khiển tích hợp mọi thứ trên chip." },
+        { text: "What architecture does AVR use?", options: ["CISC", "RISC", "Von Neumann", "Harvard"], correct: 1, keyword: "AVR RISC", explanation_en: "AVR uses RISC architecture.", explanation_vn: "AVR dùng kiến trúc RISC." },
+        { text: "WREG in PIC18 is?", options: ["Program memory", "8-bit working register", "Stack pointer", "Address register"], correct: 1, keyword: "WREG", explanation_en: "WREG = working register (accumulator) in PIC.", explanation_vn: "WREG là thanh ghi làm việc trong PIC." },
+        { text: "Calculate: 7AH + 3FH = ? (hex)", options: ["B9H", "C9H", "A9H", "B8H"], correct: 0, keyword: "hex addition", explanation_en: "7A+3F = 122+63=185 = B9H", explanation_vn: "7A+3F = 122+63=185 = B9H", fx580: "MODE→4→▶️Hex→7A+3F=→B9" },
+        { text: "Convert 227 to binary:", options: ["11100011", "11100010", "11000011", "11110011"], correct: 0, keyword: "binary conversion", explanation_en: "227 = 128+64+32+2+1 = 11100011b", explanation_vn: "227 = 128+64+32+2+1 = 11100011b", fx580: "MODE→4→227=→▶️Bin→11100011" },
+        { text: "What does ARM stand for?", options: ["Advanced RISC Machine", "Advanced Real-time Module", "Automated Register Manager", "Arithmetic RISC Micro"], correct: 0, keyword: "ARM", explanation_en: "Advanced RISC Machine.", explanation_vn: "Advanced RISC Machine." },
+        { text: "Convert 0.625 to binary:", options: ["0.101", "0.110", "0.011", "0.111"], correct: 0, keyword: "fraction binary", explanation_en: "0.625×2=1.25(1), 0.25×2=0.5(0), 0.5×2=1.0(1) → 0.101b", explanation_vn: "0.625×2=1.25(1), 0.25×2=0.5(0), 0.5×2=1.0(1) → 0.101b" },
+        { text: "2's complement of 7 (8-bit)?", options: ["11111001", "00000111", "11111000", "10000111"], correct: 0, keyword: "2's complement", explanation_en: "7=00000111 → invert→11111000→+1=11111001", explanation_vn: "7=00000111 → đảo→11111000→+1=11111001", fx580: "MODE→4 chọn Bin→7=→NOT→+1=→11111001" },
+        { text: "Which company produces PIC?", options: ["Intel", "Microchip", "Atmel", "ARM"], correct: 1, keyword: "Microchip", explanation_en: "Microchip Technology produces PIC.", explanation_vn: "Microchip sản xuất PIC." },
+        { text: "Harvard architecture has?", options: ["Separate buses for program and data", "Same bus", "No cache", "Only CISC"], correct: 0, keyword: "Harvard architecture", explanation_en: "Separate buses for instructions and data.", explanation_vn: "Bus riêng cho lệnh và dữ liệu." },
+        { text: "8-bit PIC family?", options: ["PIC18", "ARM Cortex-M", "AVR Mega", "ESP32"], correct: 0, keyword: "PIC18", explanation_en: "PIC18 is 8-bit Microchip family.", explanation_vn: "PIC18 là dòng 8-bit của Microchip." },
+        { text: "RISC stands for?", options: ["Reduced Instruction Set Computer", "Regular Instruction Set", "Repeated Instruction Set", "Reduced Information Set"], correct: 0, keyword: "RISC", explanation_en: "Reduced Instruction Set Computer.", explanation_vn: "Reduced Instruction Set Computer." },
+        { text: "Max external code memory for 8051?", options: ["16KB", "32KB", "64KB", "128KB"], correct: 2, keyword: "64KB external", explanation_en: "8051 addresses up to 64KB external ROM.", explanation_vn: "8051 địa chỉ tối đa 64KB ROM ngoài." },
+        { text: "Which pin selects external memory?", options: ["EA", "PSEN", "ALE", "RST"], correct: 0, keyword: "EA pin", explanation_en: "EA=0 uses external memory.", explanation_vn: "EA=0 dùng bộ nhớ ngoài." },
+        { text: "ALE frequency relative to XTAL?", options: ["1/2", "1/4", "1/6", "Same"], correct: 2, keyword: "ALE 1/6", explanation_en: "ALE = 1/6 of crystal frequency.", explanation_vn: "ALE = 1/6 tần số thạch anh." },
+        { text: "What is the width of the Data Pointer (DPTR)?", options: ["8-bit", "16-bit", "32-bit", "12-bit"], correct: 1, keyword: "DPTR 16-bit", explanation_en: "DPTR is 16-bit register for external memory access.", explanation_vn: "DPTR là thanh ghi 16-bit truy xuất bộ nhớ ngoài." },
+        { text: "Which company manufactures AVR microcontrollers?", options: ["Microchip (formerly Atmel)", "Intel", "ARM", "Texas Instruments"], correct: 0, keyword: "Atmel/Microchip", explanation_en: "AVR was developed by Atmel, now part of Microchip.", explanation_vn: "AVR do Atmel phát triển, nay thuộc Microchip." },
+        { text: "What is the advantage of RISC over CISC?", options: ["Faster execution, simpler instructions", "More complex instructions", "Larger code size", "More memory usage"], correct: 0, keyword: "RISC advantage", explanation_en: "RISC has simpler instructions, typically 1 cycle per instruction.", explanation_vn: "RISC có lệnh đơn giản, thường 1 chu kỳ/lệnh." },
+        { text: "What does 'embedded system' mean?", options: ["Computer system dedicated to specific function", "General purpose computer", "Server system", "Desktop PC"], correct: 0, keyword: "embedded system", explanation_en: "Embedded system is designed for specific control functions.", explanation_vn: "Hệ thống nhúng được thiết kế cho chức năng điều khiển cụ thể." },
+        { text: "What is the function of the ALE pin?", options: ["Latch address from P0", "Enable external ROM", "Reset", "Clock output"], correct: 0, keyword: "ALE latch", explanation_en: "ALE latches low address byte from P0.", explanation_vn: "ALE chốt địa chỉ thấp từ P0." },
+        { text: "What is the PSEN pin used for?", options: ["Read external program memory", "Write external data", "Reset", "Interrupt"], correct: 0, keyword: "PSEN", explanation_en: "PSEN (Program Store Enable) reads external code memory.", explanation_vn: "PSEN đọc bộ nhớ chương trình ngoài." },
+        { text: "What is the difference between Von Neumann and Harvard?", options: ["Harvard has separate instruction/data buses", "Von Neumann has separate buses", "No difference", "Harvard slower"], correct: 0, keyword: "Harvard vs Von Neumann", explanation_en: "Harvard has separate buses for code and data.", explanation_vn: "Harvard có bus riêng cho lệnh và dữ liệu." },
+        { text: "Which microcontroller family uses the 'WREG' accumulator?", options: ["PIC", "AVR", "8051", "ARM"], correct: 0, keyword: "WREG PIC", explanation_en: "PIC microcontrollers use WREG as working register.", explanation_vn: "PIC dùng WREG làm thanh ghi làm việc." },
+        { text: "What is the maximum number of register banks in 8051?", options: ["4", "2", "8", "1"], correct: 0, keyword: "4 banks", explanation_en: "8051 has 4 register banks (Bank0-Bank3).", explanation_vn: "8051 có 4 bank thanh ghi (Bank0-Bank3)." },
+        { text: "What is the address of the first register in Bank 0?", options: ["00H", "08H", "10H", "18H"], correct: 0, keyword: "Bank0 00H-07H", explanation_en: "Bank0 registers R0-R7 occupy addresses 00H-07H.", explanation_vn: "Bank0 thanh ghi R0-R7 chiếm địa chỉ 00H-07H." },
+        { text: "What is the address range of bit-addressable RAM?", options: ["20H-2FH", "00H-1FH", "30H-7FH", "80H-FFH"], correct: 0, keyword: "bit-addressable 20H-2FH", explanation_en: "Bytes 20H to 2FH are bit-addressable (128 bits).", explanation_vn: "Các byte 20H-2FH có thể đánh địa chỉ bit." },
+        { text: "What is the stack pointer initial value after reset?", options: ["07H", "00H", "FFH", "60H"], correct: 0, keyword: "SP=07H", explanation_en: "SP initializes to 07H after reset.", explanation_vn: "SP = 07H sau reset." },
+        { text: "Which of the following is a 32-bit ARM Cortex-M processor?", options: ["STM32", "PIC18", "ATmega328", "8051"], correct: 0, keyword: "ARM Cortex-M", explanation_en: "STM32 is based on ARM Cortex-M 32-bit core.", explanation_vn: "STM32 dùng lõi ARM Cortex-M 32-bit." },
+        { text: "What does ISP stand for in AVR context?", options: ["In-System Programming", "Internet Service Provider", "Instruction Set Processor", "Internal Stack Pointer"], correct: 0, keyword: "ISP", explanation_en: "In-System Programming allows programming without removing chip.", explanation_vn: "Lập trình trong hệ thống, không cần tháo chip." },
+        { text: "What is the function of the XTAL1 and XTAL2 pins?", options: ["Connect crystal oscillator", "Power supply", "Reset", "I/O ports"], correct: 0, keyword: "XTAL oscillator", explanation_en: "XTAL1/XTAL2 connect to crystal for clock generation.", explanation_vn: "XTAL1/XTAL2 nối với thạch anh tạo xung clock." },
+        { text: "What is the result of 0x3F + 0x41 in hex?", options: ["80H", "7FH", "81H", "82H"], correct: 0, keyword: "hex addition", calculation: true, explanation_en: "3F+41=63+65=128=80H", explanation_vn: "3F+41=63+65=128=80H", fx580: "MODE→4→▶️Hex→3F+41=→80" },
+        { text: "Convert 255 to binary:", options: ["11111111", "11110000", "10000000", "11111110"], correct: 0, keyword: "binary 255", calculation: true, explanation_en: "255 = 11111111b", explanation_vn: "255 = 11111111b", fx580: "255=→▶️Bin→11111111" },
+        { text: "What is the 2's complement of 0?", options: ["00000000", "11111111", "00000001", "10000000"], correct: 0, keyword: "2's complement of 0", explanation_en: "2's complement of 0 is 0.", explanation_vn: "Bù 2 của 0 là 0." },
+        { text: "What is the 2's complement of 128 (8-bit)?", options: ["10000000", "01111111", "11111111", "00000000"], correct: 0, keyword: "2's complement 128", explanation_en: "128 in 8-bit signed is -128, its 2's complement is itself.", explanation_vn: "128 trong 8-bit có dấu là -128, bù 2 của nó là chính nó." },
+        { text: "What is the decimal value of 0xAB?", options: ["171", "172", "170", "173"], correct: 0, keyword: "hex to decimal", calculation: true, explanation_en: "0xAB = 10×16+11 = 160+11=171", explanation_vn: "0xAB = 10×16+11 = 160+11=171" },
+        { text: "What is the hex value of 250?", options: ["FAH", "FBH", "F9H", "FCH"], correct: 0, keyword: "decimal to hex", calculation: true, explanation_en: "250/16=15 dư 10 → FAH", explanation_vn: "250/16=15 dư 10 → FAH" },
+        { text: "Which pin of 8051 is used for external reset?", options: ["RST", "EA", "ALE", "PSEN"], correct: 0, keyword: "RST pin", explanation_en: "RST pin resets the 8051 when high for 2 machine cycles.", explanation_vn: "Chân RST reset 8051 khi ở mức cao trong 2 chu kỳ máy." },
+        { text: "What is the minimum and maximum voltage for 8051 Vcc?", options: ["4.0V to 5.5V", "3.0V to 3.6V", "2.7V to 5.5V", "5V only"], correct: 0, keyword: "Vcc 5V", explanation_en: "Standard 8051 operates at 5V ±10%.", explanation_vn: "8051 chuẩn hoạt động ở 5V ±10%." },
+        { text: "What does 'PSW' stand for?", options: ["Program Status Word", "Processor Status Word", "Program Stack Word", "Power Save Word"], correct: 0, keyword: "PSW", explanation_en: "PSW = Program Status Word containing flags.", explanation_vn: "PSW = Program Status Word chứa các cờ." },
+        { text: "Which bit in PSW is the Carry flag?", options: ["CY (bit 7)", "AC (bit 6)", "OV (bit 2)", "P (bit 0)"], correct: 0, keyword: "Carry flag", explanation_en: "Carry flag is bit 7 of PSW.", explanation_vn: "Cờ Carry là bit 7 của PSW." },
+        { text: "Which bit in PSW is the Auxiliary Carry flag?", options: ["AC (bit 6)", "CY (bit 7)", "OV (bit 2)", "P (bit 0)"], correct: 0, keyword: "AC flag", explanation_en: "AC flag is bit 6 of PSW, used for BCD operations.", explanation_vn: "Cờ AC là bit 6 của PSW, dùng cho BCD." },
+        { text: "Which bit in PSW is the Overflow flag?", options: ["OV (bit 2)", "CY (bit 7)", "AC (bit 6)", "P (bit 0)"], correct: 0, keyword: "OV flag", explanation_en: "OV flag is bit 2 of PSW, for signed arithmetic.", explanation_vn: "Cờ OV là bit 2 của PSW, cho số học có dấu." },
+        { text: "Which bit in PSW is the Parity flag?", options: ["P (bit 0)", "CY (bit 7)", "AC (bit 6)", "OV (bit 2)"], correct: 0, keyword: "P flag", explanation_en: "Parity flag is bit 0 of PSW, reflects accumulator parity.", explanation_vn: "Cờ Parity là bit 0 của PSW, phản ánh parity của A." },
+        { text: "What is the purpose of the AUX (AC) flag?", options: ["BCD addition carry from bit3 to bit4", "General carry", "Overflow detection", "Parity check"], correct: 0, keyword: "AC flag BCD", explanation_en: "AC flag indicates carry from lower nibble (bit3) to higher nibble (bit4).", explanation_vn: "Cờ AC chỉ carry từ nibble thấp (bit3) lên nibble cao (bit4)." }
+    ];
+
+    // ======================= CHƯƠNG 2: KIẾN TRÚC 8051 (55 câu) =======================
+    const chapter2 = [
+        { text: "Stack Pointer (SP) value after reset?", options: ["00H", "07H", "FFH", "60H"], correct: 1, keyword: "SP=07H", explanation_en: "SP=07H after reset.", explanation_vn: "SP=07H sau reset." },
+        { text: "RS1,RS0 bits in PSW are for?", options: ["Select register bank", "Select interrupt priority", "Control timer", "Control serial"], correct: 0, keyword: "bank select", explanation_en: "Select one of 4 register banks.", explanation_vn: "Chọn 1 trong 4 bank thanh ghi." },
+        { text: "When is OV flag set?", options: ["Signed overflow beyond -128..+127", "Carry out bit7", "Parity odd", "Timer overflow"], correct: 0, keyword: "OV overflow", explanation_en: "OV set when signed result exceeds +127 or below -128.", explanation_vn: "OV set khi kết quả có dấu vượt quá +127 hoặc dưới -128." },
+        { text: "Port 2 dual function?", options: ["I/O and high address bus (A8-A15)", "I/O and data bus", "Only I/O", "Interrupt pins"], correct: 0, keyword: "P2 high address", explanation_en: "Port 2 = I/O or high address bus.", explanation_vn: "Cổng 2 = I/O hoặc bus địa chỉ cao." },
+        { text: "External interrupts on which pins?", options: ["P3.2 (INT0) and P3.3 (INT1)", "P1.0,P1.1", "P2.0,P2.1", "P0.0,P0.1"], correct: 0, keyword: "INT0 INT1", explanation_en: "INT0 on P3.2, INT1 on P3.3.", explanation_vn: "INT0 ở P3.2, INT1 ở P3.3." },
+        { text: "B register used for?", options: ["Multiply/Divide with A", "Stack pointer", "Program counter", "Data pointer"], correct: 0, keyword: "MUL DIV", explanation_en: "MUL AB and DIV AB use B register.", explanation_vn: "MUL AB và DIV AB dùng thanh ghi B." },
+        { text: "Parity bit P in PSW based on?", options: ["Number of 1s in A", "Number of 0s in A", "Carry", "Overflow"], correct: 0, keyword: "parity", explanation_en: "P makes total 1s in A+P even.", explanation_vn: "P để tổng số bit 1 trong A+P là chẵn." },
+        { text: "Addressing mode of 'MOV A, @R1'?", options: ["Indirect", "Direct", "Immediate", "Register"], correct: 0, keyword: "@Ri indirect", explanation_en: "@R1 is indirect addressing.", explanation_vn: "@R1 là định địa chỉ gián tiếp." },
+        { text: "Program Counter width?", options: ["8-bit", "16-bit", "12-bit", "14-bit"], correct: 1, keyword: "PC 16-bit", explanation_en: "16-bit PC → 64KB addressing.", explanation_vn: "PC 16-bit → địa chỉ 64KB." },
+        { text: "ALE pin function?", options: ["Latch address from P0", "Enable external ROM", "Reset", "Clock output"], correct: 0, keyword: "ALE latch", explanation_en: "ALE latches low address byte from P0.", explanation_vn: "ALE chốt địa chỉ thấp từ P0." },
+        { text: "Port values after reset?", options: ["00H", "FFH", "07H", "80H"], correct: 1, keyword: "ports FFH", explanation_en: "All ports = FFH after reset.", explanation_vn: "Tất cả cổng = FFH sau reset." },
+        { text: "SFR address range?", options: ["00H-7FH", "80H-FFH", "00H-FFH", "80H-8FH"], correct: 1, keyword: "SFR 80H-FFH", explanation_en: "SFRs occupy 80H to FFH.", explanation_vn: "SFR chiếm 80H-FFH." },
+        { text: "Instruction to clear Carry?", options: ["CLR C", "SETB C", "CPL C", "MOV C,#0"], correct: 0, keyword: "CLR C", explanation_en: "CLR C clears Carry flag.", explanation_vn: "CLR C xóa cờ Carry." },
+        { text: "RETI instruction does?", options: ["Return from interrupt", "Return from subroutine", "Reset", "Enable interrupts"], correct: 0, keyword: "RETI", explanation_en: "RETI returns from ISR and re-enables interrupts.", explanation_vn: "RETI trở về từ ngắt và cho phép lại ngắt." },
+        { text: "Bit-addressable SFR example?", options: ["P0 (80H)", "SBUF (99H)", "TMOD (89H)", "PCON (87H)"], correct: 0, keyword: "P0 bit-addr", explanation_en: "Port 0 at 80H is bit-addressable.", explanation_vn: "Cổng 0 tại 80H có địa chỉ bit." },
+        { text: "GATE bit in TMOD does?", options: ["Timer runs only if INT pin high", "Gate clock", "Stop timer", "Reset timer"], correct: 0, keyword: "GATE", explanation_en: "GATE=1 → timer runs only while INT pin high.", explanation_vn: "GATE=1 → timer chỉ chạy khi chân INT cao." },
+        { text: "Max stack size?", options: ["~120 bytes", "256 bytes", "64 bytes", "32 bytes"], correct: 0, keyword: "stack limit", explanation_en: "Stack from 07H to 7FH ≈ 120 bytes.", explanation_vn: "Stack từ 07H đến 7FH ≈ 120 byte." },
+        { text: "CJNE instruction?", options: ["Compare and jump if not equal", "Compare and jump if equal", "Call if not equal", "Jump if carry"], correct: 0, keyword: "CJNE", explanation_en: "CJNE jumps if operands not equal.", explanation_vn: "CJNE nhảy nếu không bằng nhau." },
+        { text: "Which register holds status flags?", options: ["PSW", "PC", "SP", "DPTR"], correct: 0, keyword: "PSW", explanation_en: "PSW holds Carry, Aux Carry, Overflow, Parity.", explanation_vn: "PSW chứa Carry, Aux Carry, Overflow, Parity." },
+        { text: "Timer overflow in Mode 1?", options: ["TF set", "Timer stops", "Timer resets", "All of above"], correct: 3, keyword: "overflow", explanation_en: "TF set, timer resets to 0, can stop by clearing TR.", explanation_vn: "TF được set, timer về 0, có thể dừng bằng TR." },
+        { text: "TL0 address?", options: ["8AH", "8BH", "8CH", "8DH"], correct: 0, keyword: "TL0 8AH", explanation_en: "TL0 SFR address = 8AH.", explanation_vn: "TL0 địa chỉ SFR = 8AH." },
+        { text: "TH0 address?", options: ["8AH", "8BH", "8CH", "8DH"], correct: 2, keyword: "TH0 8CH", explanation_en: "TH0 SFR address = 8CH.", explanation_vn: "TH0 địa chỉ SFR = 8CH." },
+        { text: "SWAP A does?", options: ["Swap nibbles of A", "Swap A and B", "Swap A and R0", "Swap A and @R0"], correct: 0, keyword: "SWAP", explanation_en: "SWAP exchanges high and low nibbles of A.", explanation_vn: "SWAP đổi nibble cao và thấp của A." },
+        { text: "DJNZ instruction?", options: ["Decrement and jump if not zero", "Decrement and jump if zero", "Decrement and jump", "Jump if not zero"], correct: 0, keyword: "DJNZ", explanation_en: "DJNZ decrements and jumps if result ≠ 0.", explanation_vn: "DJNZ giảm và nhảy nếu kết quả ≠ 0." },
+        { text: "Mode 0 timer max count?", options: ["8191", "65535", "255", "4095"], correct: 0, keyword: "mode 0 13-bit", explanation_en: "13-bit timer counts 0 to 8191 (1FFFh).", explanation_vn: "Timer 13-bit đếm 0 đến 8191 (1FFFh)." },
+        { text: "What is the function of the PUSH instruction?", options: ["Save register onto stack", "Load from stack", "Jump to subroutine", "Return from subroutine"], correct: 0, keyword: "PUSH stack", explanation_en: "PUSH stores register value onto stack.", explanation_vn: "PUSH lưu giá trị thanh ghi vào stack." },
+        { text: "What is the function of the POP instruction?", options: ["Restore register from stack", "Save to stack", "Push to stack", "Clear register"], correct: 0, keyword: "POP stack", explanation_en: "POP retrieves value from stack into register.", explanation_vn: "POP lấy giá trị từ stack vào thanh ghi." },
+        { text: "What is the address of the IE (Interrupt Enable) register?", options: ["0xA8", "0xB8", "0xD0", "0xE0"], correct: 0, keyword: "IE at A8H", explanation_en: "Interrupt Enable register is at SFR address A8H.", explanation_vn: "Thanh ghi IE ở địa chỉ SFR A8H." },
+        { text: "What is the address of the IP (Interrupt Priority) register?", options: ["0xB8", "0xA8", "0xD0", "0xE0"], correct: 0, keyword: "IP at B8H", explanation_en: "Interrupt Priority register is at SFR address B8H.", explanation_vn: "Thanh ghi IP ở địa chỉ SFR B8H." },
+        { text: "What is the function of the ACALL instruction?", options: ["Absolute call to subroutine within 2KB", "Long call 64KB", "Return from subroutine", "Conditional call"], correct: 0, keyword: "ACALL 2KB", explanation_en: "ACALL calls subroutine within same 2KB page.", explanation_vn: "ACALL gọi chương trình con trong cùng trang 2KB." },
+        { text: "What is the function of the LCALL instruction?", options: ["Long call to anywhere in 64KB", "Absolute call 2KB", "Return", "Conditional call"], correct: 0, keyword: "LCALL 64KB", explanation_en: "LCALL can call subroutine anywhere in 64KB.", explanation_vn: "LCALL có thể gọi chương trình con bất kỳ trong 64KB." },
+        { text: "What is the function of the RET instruction?", options: ["Return from subroutine", "Return from interrupt", "Reset", "Jump"], correct: 0, keyword: "RET", explanation_en: "RET returns from subroutine.", explanation_vn: "RET trở về từ chương trình con." },
+        { text: "What is the difference between RET and RETI?", options: ["RETI re-enables interrupts", "RET re-enables interrupts", "No difference", "RETI returns from subroutine"], correct: 0, keyword: "RETI vs RET", explanation_en: "RETI re-enables interrupts after returning from ISR.", explanation_vn: "RETI cho phép lại ngắt sau khi trở về từ ISR." },
+        { text: "What is the function of the JB instruction?", options: ["Jump if bit set", "Jump if bit clear", "Jump if carry set", "Jump if zero"], correct: 0, keyword: "JB", explanation_en: "JB jumps if specified bit is 1.", explanation_vn: "JB nhảy nếu bit chỉ định bằng 1." },
+        { text: "What is the function of the JNB instruction?", options: ["Jump if bit not set", "Jump if bit set", "Jump if carry", "Jump if zero"], correct: 0, keyword: "JNB", explanation_en: "JNB jumps if specified bit is 0.", explanation_vn: "JNB nhảy nếu bit chỉ định bằng 0." },
+        { text: "What is the function of the JBC instruction?", options: ["Jump if bit set and clear bit", "Jump if bit clear", "Jump if carry set", "Jump if zero"], correct: 0, keyword: "JBC", explanation_en: "JBC jumps if bit=1 and then clears the bit.", explanation_vn: "JBC nhảy nếu bit=1 sau đó xóa bit đó." },
+        { text: "What is the function of the ANL instruction?", options: ["Logical AND", "Logical OR", "Logical XOR", "Logical NOT"], correct: 0, keyword: "ANL", explanation_en: "ANL performs bitwise AND operation.", explanation_vn: "ANL thực hiện phép AND bit." },
+        { text: "What is the function of the ORL instruction?", options: ["Logical OR", "Logical AND", "Logical XOR", "Logical NOT"], correct: 0, keyword: "ORL", explanation_en: "ORL performs bitwise OR operation.", explanation_vn: "ORL thực hiện phép OR bit." },
+        { text: "What is the function of the XRL instruction?", options: ["Logical XOR", "Logical AND", "Logical OR", "Logical NOT"], correct: 0, keyword: "XRL", explanation_en: "XRL performs bitwise XOR operation.", explanation_vn: "XRL thực hiện phép XOR bit." },
+        { text: "What is the function of the CPL instruction?", options: ["Complement (invert) bits", "Clear bits", "Set bits", "Move bits"], correct: 0, keyword: "CPL complement", explanation_en: "CPL complements (inverts) all bits of A or a bit.", explanation_vn: "CPL đảo (bù) tất cả bit của A hoặc một bit." },
+        { text: "What is the function of the RL A instruction?", options: ["Rotate A left without Carry", "Rotate A left through Carry", "Rotate A right", "Swap nibbles"], correct: 0, keyword: "RL A", explanation_en: "RL A rotates A left without involving Carry.", explanation_vn: "RL A xoay A trái không qua Carry." },
+        { text: "What is the function of the RR A instruction?", options: ["Rotate A right without Carry", "Rotate A right through Carry", "Rotate A left", "Swap nibbles"], correct: 0, keyword: "RR A", explanation_en: "RR A rotates A right without involving Carry.", explanation_vn: "RR A xoay A phải không qua Carry." },
+        { text: "What is the function of the DA A instruction?", options: ["Decimal adjust for BCD addition", "Double A", "Decrement A", "Divide A"], correct: 0, keyword: "DA A BCD", explanation_en: "DA A adjusts accumulator for BCD addition.", explanation_vn: "DA A hiệu chỉnh A cho phép cộng BCD." },
+        { text: "What is the function of the MUL AB instruction?", options: ["Multiply A × B, result in A (low) and B (high)", "Add A and B", "Divide A by B", "Subtract B from A"], correct: 0, keyword: "MUL AB", explanation_en: "MUL AB multiplies unsigned A×B, 16-bit result: A=low, B=high.", explanation_vn: "MUL AB nhân A×B không dấu, kết quả 16-bit: A=thấp, B=cao." },
+        { text: "What is the function of the DIV AB instruction?", options: ["Divide A by B, quotient in A, remainder in B", "Multiply A and B", "Add A and B", "Subtract B from A"], correct: 0, keyword: "DIV AB", explanation_en: "DIV AB divides unsigned A by B, quotient in A, remainder in B.", explanation_vn: "DIV AB chia A cho B không dấu, thương trong A, dư trong B." },
+        { text: "What is the address of the SCON (Serial Control) register?", options: ["98H", "99H", "80H", "90H"], correct: 0, keyword: "SCON 98H", explanation_en: "SCON is at SFR address 98H.", explanation_vn: "SCON ở địa chỉ SFR 98H." },
+        { text: "What is the address of the SBUF (Serial Buffer) register?", options: ["99H", "98H", "9AH", "9BH"], correct: 0, keyword: "SBUF 99H", explanation_en: "SBUF is at SFR address 99H.", explanation_vn: "SBUF ở địa chỉ SFR 99H." },
+        { text: "What is the address of the TCON register?", options: ["88H", "89H", "8AH", "8BH"], correct: 0, keyword: "TCON 88H", explanation_en: "TCON is at SFR address 88H.", explanation_vn: "TCON ở địa chỉ SFR 88H." },
+        { text: "What is the address of the TMOD register?", options: ["89H", "88H", "8AH", "8BH"], correct: 0, keyword: "TMOD 89H", explanation_en: "TMOD is at SFR address 89H.", explanation_vn: "TMOD ở địa chỉ SFR 89H." },
+        { text: "What is the address of Port 0?", options: ["80H", "90H", "A0H", "B0H"], correct: 0, keyword: "P0 80H", explanation_en: "Port 0 is at SFR address 80H.", explanation_vn: "Cổng 0 ở địa chỉ SFR 80H." },
+        { text: "What is the address of Port 1?", options: ["90H", "80H", "A0H", "B0H"], correct: 0, keyword: "P1 90H", explanation_en: "Port 1 is at SFR address 90H.", explanation_vn: "Cổng 1 ở địa chỉ SFR 90H." },
+        { text: "What is the address of Port 2?", options: ["A0H", "80H", "90H", "B0H"], correct: 0, keyword: "P2 A0H", explanation_en: "Port 2 is at SFR address A0H.", explanation_vn: "Cổng 2 ở địa chỉ SFR A0H." },
+        { text: "What is the address of Port 3?", options: ["B0H", "80H", "90H", "A0H"], correct: 0, keyword: "P3 B0H", explanation_en: "Port 3 is at SFR address B0H.", explanation_vn: "Cổng 3 ở địa chỉ SFR B0H." },
+        { text: "What is the function of the SETB instruction?", options: ["Set a bit to 1", "Clear a bit to 0", "Complement a bit", "Jump if bit set"], correct: 0, keyword: "SETB", explanation_en: "SETB sets specified bit to 1.", explanation_vn: "SETB set bit chỉ định lên 1." },
+        { text: "What is the function of the CLR instruction?", options: ["Clear a bit or register to 0", "Set to 1", "Complement", "Move"], correct: 0, keyword: "CLR", explanation_en: "CLR clears specified bit or register to 0.", explanation_vn: "CLR xóa bit hoặc thanh ghi về 0." }
+    ];
+
+    // ======================= CHƯƠNG 3: TIMER 8051 (25 câu) =======================
+    const chapter3 = [
+        { text: "How many 16-bit timers does the standard 8051 have?", options: ["1", "2", "3", "4"], correct: 1, keyword: "2 timers", explanation_en: "Timer 0 and Timer 1.", explanation_vn: "Timer 0 và Timer 1." },
+        { text: "What is the size of Timer 0 in Mode 1?", options: ["8-bit", "13-bit", "16-bit", "32-bit"], correct: 2, keyword: "mode 1 16-bit", explanation_en: "Mode 1 is 16-bit.", explanation_vn: "Mode 1 là 16-bit." },
+        { text: "What is the size of Timer 0 in Mode 2?", options: ["8-bit auto-reload", "13-bit", "16-bit", "32-bit"], correct: 0, keyword: "mode 2 auto-reload", explanation_en: "Mode 2 is 8-bit auto-reload.", explanation_vn: "Mode 2 là 8-bit tự động nạp lại." },
+        { text: "Which register holds the high byte of Timer 0?", options: ["TH0", "TL0", "TH1", "TL1"], correct: 0, keyword: "TH0", explanation_en: "TH0 = Timer 0 high byte.", explanation_vn: "TH0 = byte cao Timer 0." },
+        { text: "Which register holds the low byte of Timer 0?", options: ["TH0", "TL0", "TH1", "TL1"], correct: 1, keyword: "TL0", explanation_en: "TL0 = Timer 0 low byte.", explanation_vn: "TL0 = byte thấp Timer 0." },
+        { text: "What is the maximum count value of a 16-bit timer?", options: ["255", "65535", "8191", "4095"], correct: 1, keyword: "65535", explanation_en: "16-bit timer counts 0-65535.", explanation_vn: "Timer 16-bit đếm 0-65535." },
+        { text: "What is the maximum count value of an 8-bit timer?", options: ["255", "65535", "8191", "4095"], correct: 0, keyword: "255", explanation_en: "8-bit timer counts 0-255.", explanation_vn: "Timer 8-bit đếm 0-255." },
+        { text: "Which bit in TCON starts Timer 0?", options: ["TR0", "TR1", "TF0", "TF1"], correct: 0, keyword: "TR0", explanation_en: "TR0=1 starts Timer 0.", explanation_vn: "TR0=1 khởi động Timer 0." },
+        { text: "Which bit in TCON indicates Timer 0 overflow?", options: ["TR0", "TR1", "TF0", "TF1"], correct: 2, keyword: "TF0", explanation_en: "TF0 set when Timer 0 overflows.", explanation_vn: "TF0 set khi Timer 0 tràn." },
+        { text: "Which register configures Timer mode?", options: ["TMOD", "TCON", "IE", "IP"], correct: 0, keyword: "TMOD", explanation_en: "TMOD sets timer mode.", explanation_vn: "TMOD cấu hình chế độ timer." },
+        { text: "TMOD value for Timer 0 Mode 1?", options: ["0x01", "0x02", "0x10", "0x20"], correct: 0, keyword: "TMOD 0x01", explanation_en: "Mode 1: 0001b = 0x01.", explanation_vn: "Mode 1: 0001b = 0x01." },
+        { text: "TMOD value for Timer 0 Mode 2?", options: ["0x02", "0x01", "0x20", "0x10"], correct: 0, keyword: "TMOD 0x02", explanation_en: "Mode 2: 0010b = 0x02.", explanation_vn: "Mode 2: 0010b = 0x02." },
+        { text: "TMOD value for Timer 1 Mode 2?", options: ["0x20", "0x02", "0x10", "0x01"], correct: 0, keyword: "TMOD 0x20", explanation_en: "Upper 4 bits Mode 2 = 0x20.", explanation_vn: "4 bit cao Mode 2 = 0x20." },
+        { text: "Machine cycle time @12MHz?", options: ["1 µs", "0.5 µs", "2 µs", "1.085 µs"], correct: 0, keyword: "1µs", explanation_en: "12/12MHz = 1µs.", explanation_vn: "12/12MHz = 1µs." },
+        { text: "Machine cycle time @11.0592MHz?", options: ["1 µs", "0.9216 µs", "1.085 µs", "2 µs"], correct: 2, keyword: "1.085µs", explanation_en: "12/11.0592 ≈ 1.085µs.", explanation_vn: "12/11.0592 ≈ 1.085µs.", fx580: "12÷11.0592=→1.085µs" },
+        { text: "50ms delay @12MHz: TH0,TL0 = ?", options: ["TH0=0x3C,TL0=0xB0", "TH0=0xB0,TL0=0x3C", "TH0=0x4E,TL0=0x20", "TH0=0x20,TL0=0x4E"], correct: 0, keyword: "15536=0x3CB0", calculation: true, explanation_en: "65536-50000=15536=0x3CB0", explanation_vn: "65536-50000=15536=0x3CB0", fx580: "65536-50000=→▶️Hex→3CB0" },
+        { text: "What happens in Mode 2 when TL overflows?", options: ["TL auto-reloads from TH", "Timer stops", "TF not set", "Timer resets to 0"], correct: 0, keyword: "auto-reload", explanation_en: "Mode 2 auto-reloads TL from TH.", explanation_vn: "Mode 2 tự động nạp TL từ TH." },
+        { text: "C/T bit in TMOD selects?", options: ["Timer or Counter mode", "Gate control", "Mode select", "Start timer"], correct: 0, keyword: "C/T bit", explanation_en: "C/T=0 Timer, C/T=1 Counter.", explanation_vn: "C/T=0 Timer, C/T=1 Counter." },
+        { text: "When GATE=1, timer runs when?", options: ["Only when INT pin high", "Always", "Never", "When INT pin low"], correct: 0, keyword: "GATE", explanation_en: "Timer runs only while INT pin is high.", explanation_vn: "Timer chạy chỉ khi chân INT cao." },
+        { text: "Max delay with 16-bit timer @12MHz?", options: ["~65.5 ms", "~1 ms", "~255 µs", "~8 ms"], correct: 0, keyword: "65.5ms", calculation: true, explanation_en: "65536 × 1µs = 65.536ms", explanation_vn: "65536 × 1µs = 65.536ms" },
+        { text: "Max delay with 16-bit timer @11.0592MHz?", options: ["~71.1 ms", "~65.5 ms", "~55 ms", "~80 ms"], correct: 0, keyword: "71.1ms", calculation: true, explanation_en: "65536 × 1.085µs ≈ 71.1ms", explanation_vn: "65536 × 1.085µs ≈ 71.1ms" },
+        { text: "Which SFR holds Timer 1 high byte?", options: ["TH1", "TL1", "TH0", "TL0"], correct: 0, keyword: "TH1", explanation_en: "TH1 = Timer 1 high byte.", explanation_vn: "TH1 = byte cao Timer 1." },
+        { text: "Timer 0 in Mode 0 is how many bits?", options: ["13-bit", "8-bit", "16-bit", "32-bit"], correct: 0, keyword: "mode 0 13-bit", explanation_en: "Mode 0 is 13-bit timer.", explanation_vn: "Mode 0 là timer 13-bit." },
+        { text: "What is the max count in Mode 0 (13-bit)?", options: ["8191", "65535", "255", "4095"], correct: 0, keyword: "8191", explanation_en: "13-bit counts 0-8191 (1FFFh).", explanation_vn: "13-bit đếm 0-8191 (1FFFh)." },
+        { text: "After reset, TH0 and TL0 are?", options: ["00H", "FFH", "07H", "Undefined"], correct: 0, keyword: "reset 00H", explanation_en: "All timer registers cleared to 00H on reset.", explanation_vn: "Các thanh ghi timer xóa về 00H khi reset." }
+    ];
+
+    // Gộp tất cả
     const questionsData = {
-        0: [ // Chương 1: 25 câu
-            { text: "What is the size of internal ROM in the standard 8051 microcontroller?", options: ["1 KB", "2 KB", "4 KB", "8 KB"], correct: 2, keyword: "4KB ROM", explanation_en: "The standard 8051 has 4KB of on-chip ROM.", explanation_vn: "8051 chuẩn có 4KB ROM nội." },
-            { text: "How many general purpose registers (R0-R7) does 8051 have at any one time?", options: ["8", "16", "32", "64"], correct: 0, keyword: "8 registers", explanation_en: "Only one register bank is active at a time → 8 registers.", explanation_vn: "Chỉ 1 bank thanh ghi hoạt động tại 1 thời điểm → 8 thanh ghi." },
-            { text: "What is the special function of Port 0 on the 8051?", options: ["Data output only", "Data input only", "Multiplexed address/data bus", "Interrupt control"], correct: 2, keyword: "P0 multiplexed", explanation_en: "Port 0 is multiplexed low address bus (A0-A7) and data bus.", explanation_vn: "Cổng 0 là bus địa chỉ thấp và bus dữ liệu ghép kênh." },
-            { text: "What is the size of internal RAM in the standard 8051?", options: ["64 bytes", "128 bytes", "256 bytes", "512 bytes"], correct: 1, keyword: "128B RAM", explanation_en: "Standard 8051 has 128 bytes of internal RAM.", explanation_vn: "8051 chuẩn có 128 byte RAM nội." },
-            { text: "What is the SFR address of the PSW register?", options: ["0xD0", "0xE0", "0xF0", "0xA0"], correct: 0, keyword: "PSW D0H", explanation_en: "PSW is at SFR address D0H.", explanation_vn: "PSW ở địa chỉ SFR D0H." },
-            { text: "What does 'MOV A, #25H' do?", options: ["Move value 25H into A", "Move memory content at 25H into A", "Move address 25H into A", "Invalid"], correct: 0, keyword: "immediate addressing", explanation_en: "'#' means immediate addressing, loads value directly.", explanation_vn: "'#' là định địa chỉ tức thời, nạp trực tiếp giá trị." },
-            { text: "Which instruction rotates A left through Carry?", options: ["RLC A", "RRC A", "RL A", "RR A"], correct: 0, keyword: "RLC A", explanation_en: "RLC A rotates left through Carry flag.", explanation_vn: "RLC A xoay trái qua cờ Carry." },
-            { text: "Instruction lengths in 8051 can be?", options: ["1 byte", "2 bytes", "3 bytes", "All of above"], correct: 3, keyword: "variable length", explanation_en: "Instructions: 1, 2, or 3 bytes.", explanation_vn: "Lệnh dài 1, 2 hoặc 3 byte." },
-            { text: "Which instruction is a conditional jump?", options: ["SJMP", "LJMP", "JZ", "CALL"], correct: 2, keyword: "JZ", explanation_en: "JZ jumps if accumulator is zero.", explanation_vn: "JZ nhảy nếu A bằng 0." },
-            { text: "Which instruction calls a subroutine?", options: ["CALL", "RET", "JMP", "JZ"], correct: 0, keyword: "ACALL/LCALL", explanation_en: "ACALL/LCALL call subroutines.", explanation_vn: "ACALL/LCALL gọi chương trình con." },
-            { text: "Difference between Microcontroller and Microprocessor?", options: ["MCU has CPU,RAM,ROM,I/O on chip", "MCU for desktops only", "MCU has no timer", "MCU expensive"], correct: 0, keyword: "MCU integrated", explanation_en: "Microcontroller integrates everything on one chip.", explanation_vn: "Vi điều khiển tích hợp mọi thứ trên một chip." },
-            { text: "What architecture does AVR use?", options: ["CISC", "RISC", "Von Neumann", "Harvard"], correct: 1, keyword: "AVR RISC", explanation_en: "AVR uses RISC architecture.", explanation_vn: "AVR dùng kiến trúc RISC." },
-            { text: "WREG in PIC18 is?", options: ["Program memory", "8-bit working register", "Stack pointer", "Address register"], correct: 1, keyword: "WREG", explanation_en: "WREG is working register (accumulator) in PIC.", explanation_vn: "WREG là thanh ghi làm việc trong PIC." },
-            { text: "Calculate: 7AH + 3FH = ? (hex)", options: ["B9H", "C9H", "A9H", "B8H"], correct: 0, keyword: "hex addition", calculation: true, explanation_en: "7A+3F = 122+63=185 = B9H", explanation_vn: "7A+3F = 122+63=185 = B9H", fx580: "MODE→4→▶️ chọn Hex→7A+3F=→B9" },
-            { text: "Convert 227 to binary:", options: ["11100011", "11100010", "11000011", "11110011"], correct: 0, keyword: "binary conversion", calculation: true, explanation_en: "227 = 128+64+32+2+1 = 11100011b", explanation_vn: "227 = 128+64+32+2+1 = 11100011b", fx580: "MODE→4→227=→▶️ chọn Bin→11100011" },
-            { text: "What does ARM stand for?", options: ["Advanced RISC Machine", "Advanced Real-time Module", "Automated Register Manager", "Arithmetic RISC Micro"], correct: 0, keyword: "ARM", explanation_en: "Advanced RISC Machine.", explanation_vn: "Advanced RISC Machine." },
-            { text: "Convert 0.625 to binary:", options: ["0.101", "0.110", "0.011", "0.111"], correct: 0, keyword: "fraction binary", calculation: true, explanation_en: "0.625×2=1.25(1), 0.25×2=0.5(0), 0.5×2=1.0(1) → 0.101b", explanation_vn: "0.625×2=1.25(1), 0.25×2=0.5(0), 0.5×2=1.0(1) → 0.101b" },
-            { text: "2's complement of 7 (8-bit)?", options: ["11111001", "00000111", "11111000", "10000111"], correct: 0, keyword: "2's complement", calculation: true, explanation_en: "7=00000111 → invert 11111000 → +1 = 11111001", explanation_vn: "7=00000111 → đảo 11111000 → +1 = 11111001", fx580: "MODE→4 chọn Bin→7=→NOT→+1=→11111001" },
-            { text: "Which company produces PIC?", options: ["Intel", "Microchip", "Atmel", "ARM"], correct: 1, keyword: "Microchip", explanation_en: "Microchip Technology produces PIC.", explanation_vn: "Microchip sản xuất PIC." },
-            { text: "Harvard architecture has?", options: ["Separate buses for program and data", "Same bus", "No cache", "Only CISC"], correct: 0, keyword: "Harvard architecture", explanation_en: "Separate buses for instructions and data.", explanation_vn: "Bus riêng cho lệnh và dữ liệu." },
-            { text: "8-bit PIC family?", options: ["PIC18", "ARM Cortex-M", "AVR Mega", "ESP32"], correct: 0, keyword: "PIC18", explanation_en: "PIC18 is 8-bit Microchip family.", explanation_vn: "PIC18 là dòng 8-bit của Microchip." },
-            { text: "RISC stands for?", options: ["Reduced Instruction Set Computer", "Regular Instruction Set", "Repeated Instruction Set", "Reduced Information Set"], correct: 0, keyword: "RISC", explanation_en: "Reduced Instruction Set Computer.", explanation_vn: "Reduced Instruction Set Computer." },
-            { text: "Max external code memory for 8051?", options: ["16KB", "32KB", "64KB", "128KB"], correct: 2, keyword: "64KB external", explanation_en: "8051 addresses up to 64KB external ROM.", explanation_vn: "8051 địa chỉ tối đa 64KB ROM ngoài." },
-            { text: "Which pin selects external memory?", options: ["EA", "PSEN", "ALE", "RST"], correct: 0, keyword: "EA pin", explanation_en: "EA=0 uses external memory.", explanation_vn: "EA=0 dùng bộ nhớ ngoài." },
-            { text: "ALE frequency relative to XTAL?", options: ["1/2", "1/4", "1/6", "Same"], correct: 2, keyword: "ALE 1/6", explanation_en: "ALE = 1/6 of crystal frequency.", explanation_vn: "ALE = 1/6 tần số thạch anh." }
-        ],
-        1: [ // Chương 2: 25 câu
-            { text: "Stack Pointer (SP) value after reset?", options: ["00H", "07H", "FFH", "60H"], correct: 1, keyword: "SP=07H", explanation_en: "SP=07H after reset.", explanation_vn: "SP=07H sau reset." },
-            { text: "RS1,RS0 bits in PSW are for?", options: ["Select register bank", "Select interrupt priority", "Control timer", "Control serial"], correct: 0, keyword: "bank select", explanation_en: "Select one of 4 register banks.", explanation_vn: "Chọn 1 trong 4 bank thanh ghi." },
-            { text: "When is OV flag set?", options: ["Signed overflow beyond -128..+127", "Carry out bit7", "Parity odd", "Timer overflow"], correct: 0, keyword: "OV overflow", explanation_en: "OV set when signed result exceeds +127 or below -128.", explanation_vn: "OV set khi kết quả có dấu vượt quá +127 hoặc dưới -128." },
-            { text: "Port 2 dual function?", options: ["I/O and high address bus (A8-A15)", "I/O and data bus", "Only I/O", "Interrupt pins"], correct: 0, keyword: "P2 high address", explanation_en: "Port 2 = I/O or high address bus.", explanation_vn: "Cổng 2 = I/O hoặc bus địa chỉ cao." },
-            { text: "External interrupts on which pins?", options: ["P3.2 (INT0) and P3.3 (INT1)", "P1.0,P1.1", "P2.0,P2.1", "P0.0,P0.1"], correct: 0, keyword: "INT0 INT1", explanation_en: "INT0 on P3.2, INT1 on P3.3.", explanation_vn: "INT0 ở P3.2, INT1 ở P3.3." },
-            { text: "B register used for?", options: ["Multiply/Divide with A", "Stack pointer", "Program counter", "Data pointer"], correct: 0, keyword: "MUL DIV", explanation_en: "MUL AB and DIV AB use B register.", explanation_vn: "MUL AB và DIV AB dùng thanh ghi B." },
-            { text: "Parity bit P in PSW based on?", options: ["Number of 1s in A", "Number of 0s in A", "Carry", "Overflow"], correct: 0, keyword: "parity", explanation_en: "P makes total 1s in A+P even.", explanation_vn: "P để tổng số bit 1 trong A+P là chẵn." },
-            { text: "Addressing mode of 'MOV A, @R1'?", options: ["Indirect", "Direct", "Immediate", "Register"], correct: 0, keyword: "@Ri indirect", explanation_en: "@R1 is indirect addressing.", explanation_vn: "@R1 là định địa chỉ gián tiếp." },
-            { text: "Program Counter width?", options: ["8-bit", "16-bit", "12-bit", "14-bit"], correct: 1, keyword: "PC 16-bit", explanation_en: "16-bit PC → 64KB addressing.", explanation_vn: "PC 16-bit → địa chỉ 64KB." },
-            { text: "ALE pin function?", options: ["Latch address from P0", "Enable external ROM", "Reset", "Clock output"], correct: 0, keyword: "ALE latch", explanation_en: "ALE latches low address byte from P0.", explanation_vn: "ALE chốt địa chỉ thấp từ P0." },
-            { text: "Port values after reset?", options: ["00H", "FFH", "07H", "80H"], correct: 1, keyword: "ports FFH", explanation_en: "All ports = FFH after reset.", explanation_vn: "Tất cả cổng = FFH sau reset." },
-            { text: "SFR address range?", options: ["00H-7FH", "80H-FFH", "00H-FFH", "80H-8FH"], correct: 1, keyword: "SFR 80H-FFH", explanation_en: "SFRs occupy 80H to FFH.", explanation_vn: "SFR chiếm 80H-FFH." },
-            { text: "Instruction to clear Carry?", options: ["CLR C", "SETB C", "CPL C", "MOV C,#0"], correct: 0, keyword: "CLR C", explanation_en: "CLR C clears Carry flag.", explanation_vn: "CLR C xóa cờ Carry." },
-            { text: "RETI instruction does?", options: ["Return from interrupt", "Return from subroutine", "Reset", "Enable interrupts"], correct: 0, keyword: "RETI", explanation_en: "RETI returns from ISR and re-enables interrupts.", explanation_vn: "RETI trở về từ ngắt và cho phép lại ngắt." },
-            { text: "Bit-addressable SFR example?", options: ["P0 (80H)", "SBUF (99H)", "TMOD (89H)", "PCON (87H)"], correct: 0, keyword: "P0 bit-addr", explanation_en: "Port 0 at 80H is bit-addressable.", explanation_vn: "Cổng 0 tại 80H có địa chỉ bit." },
-            { text: "GATE bit in TMOD does?", options: ["Timer runs only if INT pin high", "Gate clock", "Stop timer", "Reset timer"], correct: 0, keyword: "GATE", explanation_en: "GATE=1 → timer runs only while INT pin high.", explanation_vn: "GATE=1 → timer chỉ chạy khi chân INT cao." },
-            { text: "Max stack size?", options: ["~120 bytes", "256 bytes", "64 bytes", "32 bytes"], correct: 0, keyword: "stack limit", explanation_en: "Stack from 07H to 7FH ≈ 120 bytes.", explanation_vn: "Stack từ 07H đến 7FH ≈ 120 byte." },
-            { text: "CJNE instruction?", options: ["Compare and jump if not equal", "Compare and jump if equal", "Call if not equal", "Jump if carry"], correct: 0, keyword: "CJNE", explanation_en: "CJNE jumps if operands not equal.", explanation_vn: "CJNE nhảy nếu không bằng nhau." },
-            { text: "Which register holds status flags?", options: ["PSW", "PC", "SP", "DPTR"], correct: 0, keyword: "PSW", explanation_en: "PSW holds Carry, Aux Carry, Overflow, Parity.", explanation_vn: "PSW chứa Carry, Aux Carry, Overflow, Parity." },
-            { text: "Timer overflow in Mode 1?", options: ["TF set", "Timer stops", "Timer resets", "All of above"], correct: 3, keyword: "overflow", explanation_en: "TF set, timer resets to 0, can stop by clearing TR.", explanation_vn: "TF được set, timer về 0, có thể dừng bằng TR." },
-            { text: "TL0 address?", options: ["8AH", "8BH", "8CH", "8DH"], correct: 0, keyword: "TL0 8AH", explanation_en: "TL0 SFR address = 8AH.", explanation_vn: "TL0 địa chỉ SFR = 8AH." },
-            { text: "TH0 address?", options: ["8AH", "8BH", "8CH", "8DH"], correct: 2, keyword: "TH0 8CH", explanation_en: "TH0 SFR address = 8CH.", explanation_vn: "TH0 địa chỉ SFR = 8CH." },
-            { text: "SWAP A does?", options: ["Swap nibbles of A", "Swap A and B", "Swap A and R0", "Swap A and @R0"], correct: 0, keyword: "SWAP", explanation_en: "SWAP exchanges high and low nibbles of A.", explanation_vn: "SWAP đổi nibble cao và thấp của A." },
-            { text: "DJNZ instruction?", options: ["Decrement and jump if not zero", "Decrement and jump if zero", "Decrement and jump", "Jump if not zero"], correct: 0, keyword: "DJNZ", explanation_en: "DJNZ decrements and jumps if result ≠ 0.", explanation_vn: "DJNZ giảm và nhảy nếu kết quả ≠ 0." },
-            { text: "Mode 0 timer max count?", options: ["8191", "65535", "255", "4095"], correct: 0, keyword: "mode 0 13-bit", explanation_en: "13-bit timer counts 0 to 8191 (1FFFh).", explanation_vn: "Timer 13-bit đếm 0 đến 8191 (1FFFh)." }
-        ],
-        2: [ // Chương 3: 25 câu
-            { text: "C data type for single bit access?", options: ["sbit", "bit", "unsigned char", "sfr"], correct: 0, keyword: "sbit", explanation_en: "'sbit' accesses individual bits of SFRs/ports.", explanation_vn: "'sbit' truy cập từng bit của SFR/cổng." },
-            { text: "Machine cycle time @12MHz?", options: ["1 µs", "0.5 µs", "2 µs", "1.085 µs"], correct: 0, keyword: "12MHz 1µs", explanation_en: "1 cycle = 12/12MHz = 1µs.", explanation_vn: "1 chu kỳ = 12/12MHz = 1µs." },
-            { text: "Machine cycle time @11.0592MHz?", options: ["1 µs", "0.9216 µs", "1.085 µs", "2 µs"], correct: 2, keyword: "1.085µs", explanation_en: "12/11.0592 ≈ 1.085µs.", explanation_vn: "12/11.0592 ≈ 1.085µs.", fx580: "12÷11.0592=→1.085µs" },
-            { text: "Timer mode with auto-reload?", options: ["Mode 0", "Mode 1", "Mode 2", "Mode 3"], correct: 2, keyword: "mode 2 auto-reload", explanation_en: "Mode 2 = 8-bit auto-reload timer.", explanation_vn: "Mode 2 = timer 8-bit tự động nạp lại." },
-            { text: "Max count in Mode 1 (16-bit)?", options: ["0xFF", "0xFFFF", "0x1FFF", "0x7FFF"], correct: 1, keyword: "FFFFh", explanation_en: "16-bit timer counts 0 to 65535.", explanation_vn: "Timer 16-bit đếm 0 đến 65535." },
-            { text: "50ms delay @12MHz: TH0,TL0 = ?", options: ["TH0=0x3C, TL0=0xB0", "TH0=0xB0,TL0=0x3C", "TH0=0x4E,TL0=0x20", "TH0=0x20,TL0=0x4E"], correct: 0, keyword: "timer 15536 3CB0", calculation: true, explanation_en: "65536-50000=15536=0x3CB0 → TH=0x3C, TL=0xB0", explanation_vn: "65536-50000=15536=0x3CB0 → TH=0x3C, TL=0xB0", fx580: "65536-50000=→▶️Hex→3CB0" },
-            { text: "C/T bit in TMOD selects?", options: ["Timer/Counter", "Gate", "Mode", "Start"], correct: 0, keyword: "C/T bit", explanation_en: "C/T=0 Timer, C/T=1 Counter.", explanation_vn: "C/T=0 là Timer, C/T=1 là Counter." },
-            { text: "Baud rate formula Mode 1?", options: ["(2^SMOD/32)×Timer1 overflow", "XTAL/12", "XTAL/2", "SMOD/32×XTAL"], correct: 0, keyword: "baud rate", explanation_en: "Baud rate = (2^SMOD/32)×(Timer1 overflow).", explanation_vn: "Baud rate = (2^SMOD/32)×(tốc độ tràn Timer1)." },
-            { text: "SBUF register holds?", options: ["Serial data", "Baud rate", "Control bits", "Interrupt flags"], correct: 0, keyword: "SBUF", explanation_en: "SBUF holds data to send or received data.", explanation_vn: "SBUF chứa dữ liệu phát/nhận." },
-            { text: "Timer 0 interrupt vector?", options: ["000BH", "0003H", "0013H", "0023H"], correct: 0, keyword: "000BH", explanation_en: "Timer 0 vector = 000BH.", explanation_vn: "Vector Timer 0 = 000BH." },
-            { text: "INT0 vector address?", options: ["0003H", "000BH", "0013H", "0023H"], correct: 0, keyword: "0003H", explanation_en: "External interrupt 0 vector = 0003H.", explanation_vn: "Vector ngắt ngoài 0 = 0003H." },
-            { text: "Serial interrupt vector?", options: ["0023H", "001BH", "0013H", "000BH"], correct: 0, keyword: "0023H", explanation_en: "Serial port vector = 0023H.", explanation_vn: "Vector serial = 0023H." },
-            { text: "C operator to toggle a bit?", options: ["^ (XOR)", "& (AND)", "| (OR)", "~ (NOT)"], correct: 0, keyword: "XOR toggle", explanation_en: "XOR with 1 toggles a bit.", explanation_vn: "XOR với 1 để đảo bit." },
-            { text: "sfr keyword in C does?", options: ["Define SFR address", "Define bit", "Define function", "Define array"], correct: 0, keyword: "sfr", explanation_en: "'sfr' defines a special function register address.", explanation_vn: "'sfr' định nghĩa địa chỉ thanh ghi chức năng đặc biệt." },
-            { text: "Toggle only P2.4 in C?", options: ["P2 ^= 0x10;", "P2 = 0x10;", "P2 |= 0x10;", "P2 &= ~0x10;"], correct: 0, keyword: "XOR 0x10", explanation_en: "P2 ^= 0x10 toggles only bit 4.", explanation_vn: "P2 ^= 0x10 đảo chỉ bit 4." },
-            { text: "TMOD for Timer 0 Mode 1?", options: ["0x01", "0x02", "0x10", "0x20"], correct: 0, keyword: "TMOD 0x01", explanation_en: "Lower 4 bits: Mode 1 = 0001b = 0x01.", explanation_vn: "4 bit thấp: Mode 1 = 0001b = 0x01." },
-            { text: "TMOD for Timer 1 Mode 2?", options: ["0x20", "0x02", "0x10", "0x01"], correct: 0, keyword: "TMOD 0x20", explanation_en: "Upper 4 bits: Mode 2 = 0010b << 4 = 0x20.", explanation_vn: "4 bit cao: Mode 2 = 0010b << 4 = 0x20." },
-            { text: "TR0 bit does?", options: ["Start Timer 0", "Start Timer 1", "Stop Timer 0", "Overflow flag"], correct: 0, keyword: "TR0", explanation_en: "TR0 = 1 starts Timer 0.", explanation_vn: "TR0 = 1 khởi động Timer 0." },
-            { text: "TF0 indicates?", options: ["Timer 0 overflow", "Timer 0 start", "Timer 0 stop", "Timer 0 reload"], correct: 0, keyword: "TF0", explanation_en: "TF0 set when Timer 0 overflows.", explanation_vn: "TF0 được set khi Timer 0 tràn." },
-            { text: "IE register does?", options: ["Enable/disable interrupts", "Set priority", "Clear flags", "Store vector"], correct: 0, keyword: "IE", explanation_en: "IE enables/disables interrupts.", explanation_vn: "IE cho phép/vô hiệu ngắt." },
-            { text: "EA bit in IE?", options: ["Global interrupt enable", "Enable Timer 0", "Enable INT0", "Enable serial"], correct: 0, keyword: "EA", explanation_en: "EA must be set to enable any interrupt.", explanation_vn: "EA phải được set để cho phép bất kỳ ngắt nào." },
-            { text: "IP register sets?", options: ["Interrupt priority", "Interrupt enable", "Interrupt clear", "Interrupt flags"], correct: 0, keyword: "IP priority", explanation_en: "IP sets high priority for interrupts.", explanation_vn: "IP đặt ưu tiên cao cho ngắt." },
-            { text: "Keil C interrupt number for Timer 0?", options: ["1", "0", "2", "3"], correct: 0, keyword: "interrupt 1", explanation_en: "Timer 0 uses interrupt number 1 in Keil.", explanation_vn: "Timer 0 dùng số hiệu ngắt 1 trong Keil." },
-            { text: "Keil C interrupt number for INT0?", options: ["0", "1", "2", "3"], correct: 0, keyword: "interrupt 0", explanation_en: "INT0 uses interrupt number 0.", explanation_vn: "INT0 dùng số hiệu ngắt 0." },
-            { text: "Baud rate for TH1=0xFD, SMOD=0, 11.0592MHz?", options: ["9600", "4800", "19200", "2400"], correct: 0, keyword: "9600 baud", calculation: true, explanation_en: "TH1=0xFD gives 9600 baud at 11.0592MHz.", explanation_vn: "TH1=0xFD cho 9600 baud ở 11.0592MHz." }
-        ]
+        0: chapter1,
+        1: chapter2,
+        2: chapter3
     };
 
     let currentChapter = 0;
@@ -359,8 +391,8 @@
     function renderQuiz(chapterIdx) {
         const questions = questionsData[chapterIdx];
         if (!questions) return;
-        let html = `<div class="chapter-title">${chapterIdx === 0 ? '📖 Chương 1: Giới thiệu Vi điều khiển' : (chapterIdx === 1 ? '⚙️ Chương 2: Kiến trúc 8051' : '⌨️ Chương 3: C/Timer/Serial/Interrupt')}</div>`;
-        html += `<div class="progress-info">📊 ${questions.length} câu | ✅ Chọn đáp án để xem kết quả + Keyword</div>`;
+        let html = `<div class="chapter-title">${chapterIdx === 0 ? '📖 Chương 1: Giới thiệu Vi điều khiển (55 câu)' : (chapterIdx === 1 ? '⚙️ Chương 2: Kiến trúc 8051 (55 câu)' : '⏱️ Chương 3: TIMER 8051 (25 câu)')}</div>`;
+        html += `<div class="progress-info">📊 ${questions.length} câu | ✅ Chọn đáp án để xem kết quả + Keyword + Giải thích song ngữ</div>`;
         
         questions.forEach((q, idx) => {
             html += `<div class="question-item" id="q-${chapterIdx}-${idx}">
@@ -368,13 +400,13 @@
                         <div class="options" id="options-${chapterIdx}-${idx}">`;
             q.options.forEach((opt, optIdx) => {
                 const letter = String.fromCharCode(65 + optIdx);
-                html += `<label><input type="radio" name="q${chapterIdx}_${idx}" value="${optIdx}" data-qidx="${idx}"> ${letter}. ${opt}</label>`;
+                html += `<label><input type="radio" name="q${chapterIdx}_${idx}" value="${optIdx}"> ${letter}. ${opt}</label>`;
             });
             html += `</div><div class="feedback" id="fb-${chapterIdx}-${idx}"></div></div>`;
         });
         document.getElementById("dynamicQuiz").innerHTML = html;
         
-        // Gắn sự kiện cho từng radio
+        // Gắn sự kiện
         for (let i = 0; i < questions.length; i++) {
             const radios = document.querySelectorAll(`input[name="q${chapterIdx}_${i}"]`);
             radios.forEach(radio => {
@@ -388,7 +420,7 @@
                     if (isCorrect) {
                         fbDiv.innerHTML = `<div class="feedback correct">
                             <div class="keyword-highlight">🔑 KEYWORD: ${keyword}</div>
-                            ✅ Đúng!<br>
+                            ✅ Correct!<br>
                             <span class="english">📖 EN: ${questions[i].explanation_en}</span><br>
                             <span class="vietnamese">🇻🇳 VN: ${questions[i].explanation_vn}</span>
                             ${questions[i].fx580 ? `<br>🧮 <strong>FX-580:</strong> ${questions[i].fx580}` : ''}
@@ -396,7 +428,7 @@
                     } else {
                         fbDiv.innerHTML = `<div class="feedback wrong">
                             <div class="keyword-highlight">🔑 KEYWORD: ${keyword}</div>
-                            ❌ Sai. Đáp án đúng: ${correctLetter}. ${questions[i].options[questions[i].correct]}<br>
+                            ❌ Wrong. Correct: ${correctLetter}. ${questions[i].options[questions[i].correct]}<br>
                             <span class="english">📖 EN: ${questions[i].explanation_en}</span><br>
                             <span class="vietnamese">🇻🇳 VN: ${questions[i].explanation_vn}</span>
                             ${questions[i].fx580 ? `<br>🧮 <strong>FX-580:</strong> ${questions[i].fx580}` : ''}
